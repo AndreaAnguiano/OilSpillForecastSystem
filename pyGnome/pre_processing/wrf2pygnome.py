@@ -89,7 +89,7 @@ def wrf2pygnome(startDate, endDate, path, prefix, lat, lon):
     lon.standard_name = 'longitude'
 
     time.long_name = 'Time'
-    time.units = 'hours since ' + str(yearsd) + '-' + str(monthsd) + '-' + str(daysd) + ' 00:00:00'
+    time.units = 'hours since ' + str(yearsd) + '-' + str(monthsd) + '-' + str(daysd-1) + ' 00:00:00'
     time.standard_name = 'time'
 
     u.long_name = 'Eastward Water Velocity'
@@ -114,12 +114,12 @@ def wrf2pygnome(startDate, endDate, path, prefix, lat, lon):
 
 
 startdate = datetime(2010,04,22)
-enddate = datetime(2010,05,22)
+enddate = datetime(2010,07,31)
 pth = '/DATA/petroleo/Datos/WRF_2010/'
 pref = 'wrfout_c1h_d01_'
 dpth = [0, 100]
-lat = [25, 31]
-lon = [-92, -80]
+lat = [18.1, 33]
+lon = [-98, -82]
 
 import time
 

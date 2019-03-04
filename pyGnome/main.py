@@ -10,7 +10,7 @@ from modelConfig import *
 # add paths
 
 data_path = os.path.dirname('/home/andrea/python/OilSpillForecastSystem/Data/')
-output_path = os.path.dirname('/home/andrea/python/OilSpillForecastSystem/outputsvi te/testhycomwrf/')
+output_path = os.path.dirname('/home/andrea/python/OilSpillForecastSystem/outputs/testanothwindscale/')
 
 #data_path = os.path.dirname('Data/')
 #output_path = os.path.dirname('output/')
@@ -20,29 +20,29 @@ map = 'gulf.bna'
 reFloatHalfLife = -1 # Particles that beach on the shorelines are randomly refloated according to the specified half-life (specified in hours). # If no refloating is desired set this value to -1.
 
 # spill timming
-startDate = datetime(2010,4,24)
-duration = timedelta(days=28)
+startDate = datetime(2010,04,22)
+duration = timedelta(days=10)
 
 
 #timestep (s)
-timeStep = 1800
+timeStep = 3600
 
 #oil decay (weathering)
 weatheringSteps = 5 #how many weathering substeps to run inside a single model time step
 evaporation = False
 
 #model uncertain
-uncertain = True
+uncertain = False
 
 #Files
-windFile = 'WRF_20100422-20100522.nc'
+windFile = 'WRF_20100422-20100731.nc'
 #currFile = 'Synthetic/Currtest.nc'
-currFile = 'hycom_20100422-20100522.nc'
+currFile = 'hycom_v4_20100422-20100731.nc'
 
 tidalFile = 'VDATUM_EC2001.nc'
 
 # # Elements
-num_elements = 48000
+num_elements = 28181
 
 # depths
 depths = [0]

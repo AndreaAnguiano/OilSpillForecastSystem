@@ -40,21 +40,21 @@ def make_model(timeStep,start_time, duration, weatheringSteps, map, uncertain, d
 
     print 'adding a renderer'
     # renderer is a class that writes map images for GNOME results
-    model.outputters += Renderer(mapfile, output_path, size=(800, 600), output_timestep=timedelta(hours=2))
-    netcdf_file = os.path.join(output_path, 'test_output.nc')
-    scripting.remove_netcdf(netcdf_file)
-    nc_outputter = NetCDFOutput(netcdf_file, which_data='most', output_timestep=timedelta(hours=1))
-    model.outputters += nc_outputter
+    model.outputters += Renderer(mapfile, output_path, size=(800, 600), output_timestep=timedelta(hours=1))
+    ##scripting.remove_netcdf(netcdf_file)
+    #nc_outputter = NetCDFOutput(netcdf_file, which_data='most', output_timestep=timedelta(hours=1))
+    #model.outputters += nc_outputter
     #adding the movers
 
     print 'adding a wind mover:'
     wind_file = get_datafile(os.path.join(data_path, windFile))
-    wind =GridWindMover(wind_file)
-    #model.movers += GridWindMover(wind_file)
+    wind = GridWindMover(wind_file)
+    wind.wind_scale = 2
+    model.movers += wind
 
     print 'adding a current mover: '
     curr_file = get_datafile(os.path.join(data_path,currFile))
-    model.movers+= GridCurrentMover(curr_file)
+    model.movers+= GridCurrentMover(curr_file, num_method='RK4')
     #random_mover = RandomMover(diffusion_coef=10000) #in cm/sdfd
     #model.movers += random_mover
 
@@ -71,6 +71,6 @@ def make_model(timeStep,start_time, duration, weatheringSteps, map, uncertain, d
     # for i in depths:
     #     model.spills+= point_line_release_spill(num_elements=num_elements, start_position=(lon,lat,i), release_time=start_time)
     model.spills+= point_line_release_spill(num_elements=num_elements, start_position=(lon,lat,0), release_time=start_time,
-                                            end_release_time=start_time+timedelta(days=10),substance='AD02242', amount=9600000, units= 'kg')
+                                            end_release_time=start_time+timedelta(days=93))
 
     return model
