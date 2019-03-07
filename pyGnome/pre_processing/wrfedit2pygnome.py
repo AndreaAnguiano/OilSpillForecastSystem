@@ -118,7 +118,7 @@ def wrfedit2pygnome(startDate, endDate, path, prefix,sufix, lat, lon,uvar, vvar,
 
 
 startdate = datetime(2010,04,22)
-enddate = datetime(2010,07,31)
+enddate = datetime(2010,05,11)
 pth = '/DATA/proyectos_Julio_Lara/WRF_2010/'
 pref = 'WRF_'
 dpth = [0, 100]

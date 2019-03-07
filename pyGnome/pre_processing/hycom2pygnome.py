@@ -132,7 +132,7 @@ def hycom2pygnome(startDate, endDate, path,prefix,sufix,lat,lon, depths, uvar,vv
 
 
 startdate = datetime(2010,04,22)
-enddate = datetime(2010,07,31)
+enddate = datetime(2010,05,22)
 pth = '/DATA/proyectos_Julio_Lara/HYCOM_2010_50p1/'
 pref = 'hycom_gomu_501_'
 suf = '_t000.nc'

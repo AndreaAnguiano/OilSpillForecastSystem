@@ -35,9 +35,13 @@ evaporation = False
 uncertain = False
 
 #Files
+<<<<<<< HEAD
 windFile = 'WRF_20100422-20100731.nc'
+=======
+windFile = 'WRF_v3_20100422-20100522.nc'
+>>>>>>> d3ff03e... data
 #currFile = 'Synthetic/Currtest.nc'
-currFile = 'hycom_v4_20100422-20100731.nc'
+currFile = 'hycom_v4_20100422-20100522.nc'
 
 tidalFile = 'VDATUM_EC2001.nc'
 
