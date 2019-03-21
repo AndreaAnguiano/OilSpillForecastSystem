@@ -10,9 +10,6 @@ from gnome.weatherers import Evaporation
 from gnome.environment.wind import constant_wind
 from gnome import scripting
 import os
-from gnome.scripting import wind_mover_from_file
-
-
 from gnome.basic_types import datetime_value_2d
 from gnome.basic_types import numerical_methods
 from gnome.environment import GridCurrent
