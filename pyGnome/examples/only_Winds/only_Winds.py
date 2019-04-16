@@ -6,6 +6,7 @@ from gnome.environment import Water
 from gnome.weatherers import Evaporation
 from gnome.environment.wind import constant_wind
 from gnome import scripting
+from gnome.model import Model
 import os
 from gnome.scripting import wind_mover_from_file
 from gnome.basic_types import datetime_value_2d

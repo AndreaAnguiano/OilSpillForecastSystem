@@ -12,8 +12,25 @@
   To deactivate an environment 
   
   > source deactivate
+  
 
-## 1. Adding extra channels to conda
+## 0.5 Install netCDF dev libraries
+
+```
+sudo apt-get install libhdf5-serial-dev
+sudo apt-get install libnetcdf-dev
+```
+
+## 1. Install dependencies 
+
+```
+conda install -c anaconda netcdf4 
+conda install -c conda-forge pyshp 
+conda install -c conda-forge gridded 
+conda install -c conda-forge nbsphinx 
+```
+
+## 2. Adding extra channels to conda
 
 Add the NOAA-ORR-ERD channel 
 
@@ -28,34 +45,20 @@ Add the conda-forge channel
 
 > git clone https://github.com/NOAA-ORR-ERD/PyGnome.git
 
-## 2. Install dependencies 
-
 > cd PyGnome
 
- edit conda_requirements.txt, change pacakges to >= rather than just =
+Edit `conda_requirements.txt`, change packages from = to >=
 
- > conda install -c anaconda netcdf4 
- > conda install -c conda-forge pyshp 
- > conda install -c conda-forge gridded 
- > conda install -c conda-forge nbsphinx 
- 
 > conda install --file conda_requirements.txt
 
-## 2.5 Install netCDF
 
-> conda install netCDF4
-
-> sudo apt-get install libhdf5-serial-dev
-
-> sudo apt-get install libnetcdf-dev
-
-## 3. The Oil library 
+## 4. Clone the OilLibrary
 
 > git clone https://github.com/NOAA-ORR-ERD/OilLibrary.git
 
 > cd OilLibrary/
 
- edit conda_requirements.txt, change pacakges to >= rather than just =
+Edit `conda_requirements.txt`, change packages from = to >=
 
 > conda install --file conda_requirements.txt
 
