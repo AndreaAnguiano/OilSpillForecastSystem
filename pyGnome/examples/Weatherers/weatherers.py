@@ -21,7 +21,11 @@ def allWeatherers(timeStep, start_time, duration, weatheringSteps, map, uncertai
     print 'initializing the model:'
     model = Model(time_step=timeStep, start_time=start_time, duration=duration)
     print 'adding the map:'
-    mapfile = get_datafile(os.path.join(data_path, map_path, map))
+    map_folder = os.path.join(data_path, map_path)
+    if not(os.path.exists(map_folder)):
+        print('The map folder is incorrectly set:', map_folder)
+    mapfile = get_datafile( os.path.join(map_folder,map) )
+
     model.map = MapFromBNA(mapfile, refloat_halflife=reFloatHalfLife)
     print 'adding a renderer'
     model.outputters += Renderer(mapfile, output_path, size=(800, 600), output_timestep=timedelta(hours=1))
