@@ -21,6 +21,7 @@ sys.path.append(join(examples_folder,'only_Winds'))
 sys.path.append(join(examples_folder,'only_Currents'))
 sys.path.append(join(examples_folder,'Weatherers'))
 
+<<<<<<< HEAD
 from CurrentsAndWinds import CurrentsAndWinds
 from only_Winds import only_Winds
 from only_Currents import only_Currents
@@ -29,17 +30,27 @@ from weatherers import allWeatherers
 
 data_path = os.path.dirname(join(root_repo,'Data/'))
 output_path = os.path.dirname(join(root_repo,'Output/'))
+=======
+# from CurrentsAndWinds import CurrentsAndWinds
+# from only_Winds import only_Winds
+#from only_Currents import only_Currents
+from weatherers import allWeatherers
+# add paths
+
+data_path = join(root_repo,'Data')
+output_path = join(root_repo,'Output/')
+>>>>>>> 01611bd64099c165f6fb10c1f1dac6b453086726
 curr_path = 'Currents/'
 wind_path = 'Winds/'
 map_path = 'BaseMaps/'
 #data_path = os.path.dirname('Data/')
 #output_path = os.path.dirname('output/')
 
-#define map name
-map = 'gulf.bna'
+#define map_file name
+map_file = 'gulf.bna'
 reFloatHalfLife = -1 # Particles that beach on the shorelines are randomly refloated according to the specified half-life (specified in hours). 
 
-# spill timming
+# spill timmin
 start_time = datetime(2010,4,22)
 duration = timedelta(days=10)
 
@@ -63,11 +74,8 @@ wind_scale = 1
 uncertain = False
 
 #Files
-#<<<<<<< HEAD
 #windFile = 'WRF_20100422-20100731.nc'
-#=======
 windFile = 'WRF_v3_20100422-20100511.nc'
-#>>>>>>> d3ff03e... data
 #currFile = 'Synthetic/Currtest.nc'
 currFile = 'hycom_v4_20100422-20100522.nc'
 
@@ -87,8 +95,13 @@ lon = -88.366
 save_nc = False
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     #scripting.make_images_dir()
     model = CurrentsAndWinds(timeStep,start_time, duration, weatheringSteps, map, uncertain, data_path,curr_path,wind_path,map_path, reFloatHalfLife, windFile, currFile, tidalFile,
+=======
+    scripting.make_images_dir()
+    model = allWeatherers(timeStep,start_time, duration, weatheringSteps, map_file, uncertain, data_path,curr_path,wind_path,map_path, reFloatHalfLife, windFile, currFile, tidalFile,
+>>>>>>> 01611bd64099c165f6fb10c1f1dac6b453086726
                num_elements, depths, lat, lon, output_path,wind_scale, save_nc, timestep_outputs, weatherers, td)
 
     model.full_run()

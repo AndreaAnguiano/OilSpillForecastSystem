@@ -71,5 +71,14 @@ Edit `conda_requirements.txt`, change packages from = to >=
 
 > python setup.py develop
 
+# Running the Examples
 
+## PyCharm configuration
+
+Add the folder `pyGnome` as a new project.
+
+Add the `Python27` environment to PyCharm. Go to: File --> Settings and search for 'interpreter'. 
+Then click the `gears` icon and `add`.
+
+Select `Conda Environment` --> `Existing Environment` --> `Select your Python27 folder`
 
