@@ -21,25 +21,26 @@ def make_modelF(timeStep, start_time, duration, weatheringSteps, map, uncertain,
     print 'initializing the model:'
     model = Model(time_step=timeStep, start_time=start_time, duration=duration)
     print 'adding the map:'
+    print os.path.join(data_path, map_path, map)
     mapfile = get_datafile(os.path.join(data_path, map_path, map))
     model.map = MapFromBNA(mapfile, refloat_halflife=reFloatHalfLife)
     print 'adding a renderer'
     model.outputters += Renderer(mapfile, output_path, size=(800, 600), output_timestep=timedelta(hours=timestep_outputs))
     if save_nc:
-        netcdf_file = 'forecast_'+str(start_time.year)+ str(start_time.month)+str(start_time.day)+'.nc'
-        nc_outputter = NetCDFOutput(netcdf_file, which_data='most', output_timestep=timedelta(hours=timestep_outputs))
+        nc_outputter = NetCDFOutput(output_path+'/'+'output.nc', which_data='most', output_timestep=timedelta(hours=timestep_outputs))
         model.outputters += nc_outputter
+
     print 'adding a wind mover:'
     wind_file = get_datafile(os.path.join(data_path, wind_path, windFile))
     wind = GridWindMover(wind_file)
-    wind.wind_scale = wind_scale
+    #wind.wind_scale = wind_scale
     model.movers += wind
     print 'adding a current mover: '
     curr_file = get_datafile(os.path.join(data_path, curr_path, currFile))
     model.movers += GridCurrentMover(curr_file, num_method='RK4')
-    if td:
-        random_mover = RandomMover(diffusion_coef=dif_coef)
-        model.movers += random_mover
+    #if td:
+        #random_mover = RandomMover(diffusion_coef=dif_coef)
+        #model.movers += random_mover
     print 'adding spill'
     model.spills += point_line_release_spill(num_elements=num_elements, start_position=(lon, lat, 0), release_time=start_time, end_release_time=start_time + duration)
     print 'adding weatherers'

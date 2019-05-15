@@ -29,7 +29,7 @@ def make_model(timeStep,start_time, duration, weatheringSteps, map, uncertain, d
 
     #adding the map
     print 'adding the map:'
-
+    print 'pinche path', data_path
     mapfile = get_datafile(os.path.join(data_path, map))
     model.map = MapFromBNA(mapfile, refloat_halflife = reFloatHalfLife)
     #model.map = GnomeMap()

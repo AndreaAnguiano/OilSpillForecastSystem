@@ -1,15 +1,21 @@
-from gnome.weatherers import Evaporation
-from gnome.environment.wind import constant_wind
+from gnome.utilities.remote_data import get_datafile
+from gnome.model import Model
+from gnome.map import GnomeMap
+from gnome.map import MapFromBNA
+from gnome.spill import point_line_release_spill
+from gnome.movers import RandomMover, constant_wind_mover, GridCurrentMover, GridWindMover
+from gnome.outputters import Renderer, NetCDFOutput
 from gnome import scripting
 import os
 from gnome.basic_types import datetime_value_2d
 from gnome.basic_types import numerical_methods
-from gnome.environment import GridCurrent
+from gnome.environment import GridCurrent, constant_wind, Water, Waves
 from gnome.outputters.animated_gif import Animation
 from gnome.movers.py_current_movers import PyCurrentMover
 from gnome.movers.py_wind_movers import PyWindMover
 import os, numpy as np
 from datetime import datetime, timedelta
+from gnome.weatherers import Emulsification, Evaporation, NaturalDispersion, ChemicalDispersion, Burn, Skimmer, WeatheringData
 
 def CurrentsAndWinds(timeStep, start_time, duration, weatheringSteps, map, uncertain, data_path, curr_path, wind_path, map_path, reFloatHalfLife, windFile, currFile, tidalFile, num_elements, depths, lat, lon, output_path, wind_scale, save_nc, timestep_outputs, weatherers, td):
     print 'initializing the model:'

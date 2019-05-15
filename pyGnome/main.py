@@ -11,22 +11,23 @@ from modelConfig import *
 
 import sys
 
-root_repo='/media/osz1/DATA/Dropbox/MyProjects/UNAM/OilSpill_Andrea/OilSpillForecastSystem/'
+#root_repo='/media/osz1/DATA/Dropbox/MyProjects/UNAM/OilSpill_Andrea/OilSpillForecastSystem/'
+root_repo='/home/andrea/python/OilSpillForecastSystem/'
 examples_folder=join(root_repo,'pyGnome/examples')
 print(examples_folder)
 
 sys.path.append(join(examples_folder,'CurrentsAndWinds'))
 sys.path.append(join(examples_folder,'only_Winds'))
-#sys.path.append(join(examples_folder,'only_Currents'))
+sys.path.append(join(examples_folder,'only_Currents'))
 sys.path.append(join(examples_folder,'Weatherers'))
 
 from CurrentsAndWinds import CurrentsAndWinds
 from only_Winds import only_Winds
-#from only_Currents import only_Currents
+from only_Currents import only_Currents
 from weatherers import allWeatherers
 # add paths
 
-data_path = os.path.dirname(join(root_repo,'Data'))
+data_path = os.path.dirname(join(root_repo,'Data/'))
 output_path = os.path.dirname(join(root_repo,'Output/'))
 curr_path = 'Currents/'
 wind_path = 'Winds/'
@@ -86,8 +87,8 @@ lon = -88.366
 save_nc = False
 
 if __name__ == '__main__':
-    scripting.make_images_dir()
-    model = allWeatherers(timeStep,start_time, duration, weatheringSteps, map, uncertain, data_path,curr_path,wind_path,map_path, reFloatHalfLife, windFile, currFile, tidalFile,
+    #scripting.make_images_dir()
+    model = CurrentsAndWinds(timeStep,start_time, duration, weatheringSteps, map, uncertain, data_path,curr_path,wind_path,map_path, reFloatHalfLife, windFile, currFile, tidalFile,
                num_elements, depths, lat, lon, output_path,wind_scale, save_nc, timestep_outputs, weatherers, td)
 
     model.full_run()

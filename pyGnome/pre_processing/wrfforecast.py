@@ -16,7 +16,7 @@ def wrfforecast(startDate, endDate, path, prefix,sufix, latbox, lonbox, uvar, vv
     dayofyrf = endDate.timetuple().tm_yday
     yeardt = yearfd - yearsd
     fileName = path + prefix + str(yearsd) + "-" +"{0:02d}".format(monthsd)+'-'+ "{0:02d}".format(daysd)+sufix
-    print fileName
+    #print fileName
     coords = cutCoords(fileName, latvar, lonvar, latbox, lonbox, 'depth', 'depthvar', 'wrf')
 
     latValues = coords[0]
@@ -25,7 +25,7 @@ def wrfforecast(startDate, endDate, path, prefix,sufix, latbox, lonbox, uvar, vv
     latmaxindx = coords[3]
     lonminindx = coords[4]
     lonmaxindx = coords[5]
-    print 'latvalues: ',latValues.shape,'lonvalues: ', lonValues.shape  
+    # print 'latvalues: ',latValues.shape,'lonvalues: ', lonValues.shape  
     data = Dataset(fileName, 'r', format='NETCDF4_CLASSIC')
     var = data.variables
     u = var.get(uvar)
@@ -33,7 +33,7 @@ def wrfforecast(startDate, endDate, path, prefix,sufix, latbox, lonbox, uvar, vv
     ncTime = var.get('Times')
     uData = np.zeros((len(ncTime), len(latValues), len(lonValues)))
     vData = np.zeros((len(ncTime), len(latValues), len(lonValues)))
-    print 'udata: ', uData.shape, 'vdata: ', vData.shape
+    #print 'udata: ', uData.shape, 'vdata: ', vData.shape
     for hour in range(0,len(ncTime)):
         uData[hour, :, :] = u[hour,latminindx:latmaxindx + 1, lonminindx:lonmaxindx + 1]
         vData[hour, :, :] = v[hour,latminindx:latmaxindx + 1, lonminindx:lonmaxindx + 1]
@@ -92,23 +92,23 @@ def wrfforecast(startDate, endDate, path, prefix,sufix, latbox, lonbox, uvar, vv
 
 
 
-startdate = datetime(2019,04,01)
-enddate = datetime(2019,04,01)
-pth = '/DATA/forecastData/wrf/04_abril/'
-pref = 'wrfout_d01_'
-dpth = [0]
-lat = [18.2, 31]
-lon = [-98, -83]
-suf= '_00.nc'
-latvar = 'XLAT'
-lonvar = 'XLONG'
-uvar = 'U10'
-vvar = 'V10'
-path2save = '../../Data/Winds/'
-import time
+#startdate = datetime(2019,04,01)
+#enddate = datetime(2019,04,01)
+#pth = '/DATA/forecastData/wrf/04_abril/'
+#pref = 'wrfout_d01_'
+#dpth = [0]
+#lat = [18.2, 31]
+#lon = [-98, -83]
+#suf= '_00.nc'
+#latvar = 'XLAT'
+#lonvar = 'XLONG'
+#uvar = 'U10'
+#vvar = 'V10'
+#path2save = '../../Data/Winds/'
+#import time
 
-tic = time.clock()
+#tic = time.clock()
 
-wrfforecast(startdate, enddate, pth,pref, suf, lat, lon,uvar, vvar, latvar,lonvar, path2save)
-toc = time.clock()
-print(toc - tic)
+#wrfforecast(startdate, enddate, pth,pref, suf, lat, lon,uvar, vvar, latvar,lonvar, path2save)
+#toc = time.clock()
+#print(toc - tic)

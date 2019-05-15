@@ -18,7 +18,7 @@ def hycomforecast(startDate, endDate, path,prefix,sufix,latbox,lonbox, depths, u
     dayofyrf = endDate.timetuple().tm_yday
     yeardt = yearfd - yearsd
     firstFileName = path + prefix + str(yearsd) +"{0:02d}".format(monthsd)+str(daysd)+'12'+sufix
-    print firstFileName
+    #print firstFileName
 
     coords = cutCoords(firstFileName, latvar, lonvar, latbox, lonbox, depths, depthvar, 'hycom')
  
@@ -29,7 +29,8 @@ def hycomforecast(startDate, endDate, path,prefix,sufix,latbox,lonbox, depths, u
     latmaxindx = coords[4]
     lonminindx = coords[5]
     lonmaxindx = coords[6]
-    netcdfsname = [prefix + str(yearsd) +"{0:02d}".format(monthsd)+str(daysd)+'12'+'_t'+"{0:03d}".format(indx)+'.nc' for indx in range(0,len(os.listdir(path)))]
+    netcdfsname = [prefix + str(yearsd) +"{0:02d}".format(monthsd)+str(daysd)+'12'+'_t'+"{0:03d}".format(indx)+'.nc' for indx in range(0,len(os.listdir(path))) if indx%24==0]
+    print 'netcdfsnames: ', netcdfsname
 
     uData = np.zeros((len(netcdfsname), len(depths), len(latValues), len(lonValues)))
     vData = np.zeros((len(netcdfsname), len(depths), len(latValues), len(lonValues)))
@@ -86,7 +87,7 @@ def hycomforecast(startDate, endDate, path,prefix,sufix,latbox,lonbox, depths, u
     lon.standard_name = 'longitude'
 
     time.long_name = 'Time'
-    time.units = 'hours since ' + str(yearsd) + '-' + str(monthsd) + '-' + str(daysd) + ' 11:00:00'
+    time.units = 'hours since ' + str(yearsd) + '-' + str(monthsd) + '-' + str(daysd) + ' 00:00:00'
     time.standard_name = 'time'
 
     u.long_name = 'Eastward Water Velocity'
@@ -97,8 +98,8 @@ def hycomforecast(startDate, endDate, path,prefix,sufix,latbox,lonbox, depths, u
     v.standard_name = 'northward_sea_water_velocity'
     v.units = 'm/s'
 
-    timenetcdf = [x for x in range(1, len(netcdfsname) + 1)]
-
+    timenetcdf = [x for x in range(0, len(netcdfsname)*24,24)]
+    print 'timenetcdf: ', timenetcdf
     lat[:] = latValues[:]
     lon[:] = lonValues[:]
     time[:] = timenetcdf[:]
@@ -109,22 +110,22 @@ def hycomforecast(startDate, endDate, path,prefix,sufix,latbox,lonbox, depths, u
 
     dataset.sync()
     dataset.close()
-startdate = datetime(2019,04,27)
-enddate = datetime(2019,04,27)
-pth = '/DATA/forecastData/hycom/'
-pref = 'hycom_gomu_901m000_'
-suf = '_t000.nc'
-dpth = [0]
-lat = [18.2,31]
-lon = [-98, -81]
+#startdate = datetime(2019,05,13)
+#enddate = datetime(2019,05,13)
+#pth = '/DATA/forecastData/hycom/'
+#pref = 'hycom_gomu_901m000_'
+#suf = '_t000.nc'
+#dpth = [0]
+#lat = [18.2,31]
+#lon = [-98, -81]
 
-uvar = 'water_u'
-vvar = 'water_v'
-latvar = 'lat'
-lonvar = 'lon'
-depthvar = 'depth'
-path2save = '../../Data/Currents/'
-tic = time.clock()
-hycomforecast(startdate, enddate, pth,pref,suf,lat,lon, dpth, uvar,vvar, latvar,lonvar, depthvar, path2save)
-toc = time.clock()
-print(toc-tic)
+#uvar = 'water_u'
+#vvar = 'water_v'
+#latvar = 'lat'
+#lonvar = 'lon'
+#depthvar = 'depth'
+#path2save = '../../Data/Currents/'
+#tic = time.clock()
+#hycomforecast(startdate, enddate, pth,pref,suf,lat,lon, dpth, uvar,vvar, latvar,lonvar, depthvar, path2save)
+#toc = time.clock()
+#print(toc-tic)
