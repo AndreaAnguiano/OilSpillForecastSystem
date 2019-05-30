@@ -17,8 +17,9 @@ git checkout develop
 
 Install requirements
 ```
+source activate Python27
 pip install -r pip_requirements.txt
-pip install jsmin htmlmin pyramid_redis_sessions ujson gitpython webtest
+pip install jsmin htmlmin pyramid_redis_sessions ujson gitpython webtest cornice paste
 ```
 
 ### Build WebGnomeApi
@@ -26,8 +27,8 @@ Build WebGnomeApi (any of these whould work)
 
 ```
 pip install ./
-pip setup.py develop
-pip setup.py compilejson
+python setup.py develop
+python setup.py compilejson
 ```
 
 ### Test the server 
@@ -41,9 +42,14 @@ Run a redis-server:
 redis-server
 ```
 
-Run the WebGnome tests:
+Run the WebGnomeApi tests:
 ```
 py.test webgnome_api/tests
+```
+
+Run WebGnomeApi:
+```
+pserve config-example.ini
 ```
 
 ## Errors
