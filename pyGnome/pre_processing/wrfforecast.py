@@ -38,7 +38,7 @@ def wrfforecast(startDate, endDate, path, prefix,sufix, latbox, lonbox, uvar, vv
         uData[hour, :, :] = u[hour,latminindx:latmaxindx + 1, lonminindx:lonmaxindx + 1]
         vData[hour, :, :] = v[hour,latminindx:latmaxindx + 1, lonminindx:lonmaxindx + 1]
     
-    fileName = 'WRF_forecast_' + str(yearsd) + "{0:02d}".format(monthsd) + str(daysd) +'.nc'
+    fileName = 'WRF_forecast_' + str(yearsd) + "{0:02d}".format(monthsd) + "{0:02d}".format(daysd) +'.nc'
     dataset = Dataset(path2save + fileName, 'w', format='NETCDF3_CLASSIC')
 
     fillValue = 1.267651e+30

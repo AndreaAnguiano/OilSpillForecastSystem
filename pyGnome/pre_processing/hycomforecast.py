@@ -17,7 +17,7 @@ def hycomforecast(startDate, endDate, path,prefix,sufix,latbox,lonbox, depths, u
     yearfd = endDate.year
     dayofyrf = endDate.timetuple().tm_yday
     yeardt = yearfd - yearsd
-    firstFileName = path + prefix + str(yearsd) +"{0:02d}".format(monthsd)+str(daysd)+'12'+sufix
+    firstFileName = path + prefix + str(yearsd) +"{0:02d}".format(monthsd)+"{0:02d}".format(daysd)+'12'+sufix
     #print firstFileName
 
     coords = cutCoords(firstFileName, latvar, lonvar, latbox, lonbox, depths, depthvar, 'hycom')
@@ -29,8 +29,8 @@ def hycomforecast(startDate, endDate, path,prefix,sufix,latbox,lonbox, depths, u
     latmaxindx = coords[4]
     lonminindx = coords[5]
     lonmaxindx = coords[6]
-    netcdfsname = [prefix + str(yearsd) +"{0:02d}".format(monthsd)+str(daysd)+'12'+'_t'+"{0:03d}".format(indx)+'.nc' for indx in range(0,len(os.listdir(path))) if indx%24==0]
-    print 'netcdfsnames: ', netcdfsname
+    netcdfsname = [prefix + str(yearsd) +"{0:02d}".format(monthsd)+"{0:02d}".format(daysd)+'12'+'_t'+"{0:03d}".format(indx)+'.nc' for indx in range(0,len(os.listdir(path))) if indx%24==0]
+    #print 'netcdfsnames: ', netcdfsname
 
     uData = np.zeros((len(netcdfsname), len(depths), len(latValues), len(lonValues)))
     vData = np.zeros((len(netcdfsname), len(depths), len(latValues), len(lonValues)))
@@ -55,8 +55,8 @@ def hycomforecast(startDate, endDate, path,prefix,sufix,latbox,lonbox, depths, u
 
 
 
-    fileName = 'hycom_forecast_' + str(yearsd) + "{0:02d}".format(monthsd) + str(daysd)+'.nc'
-    dataset = Dataset(path2save + fileName, 'w', format='NETCDF3_CLASSIC')
+    fileName = 'hycom_forecast_' + str(yearsd) + "{0:02d}".format(monthsd)+ "{0:02d}".format(daysd)+'.nc'
+    dataset = Dataset(path2save+fileName, 'w', format='NETCDF3_CLASSIC')
 
     fillValue = 1.267651e+30
 
@@ -99,7 +99,7 @@ def hycomforecast(startDate, endDate, path,prefix,sufix,latbox,lonbox, depths, u
     v.units = 'm/s'
 
     timenetcdf = [x for x in range(0, len(netcdfsname)*24,24)]
-    print 'timenetcdf: ', timenetcdf
+    #print 'timenetcdf: ', timenetcdf
     lat[:] = latValues[:]
     lon[:] = lonValues[:]
     time[:] = timenetcdf[:]

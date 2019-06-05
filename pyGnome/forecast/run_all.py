@@ -24,6 +24,12 @@ today_path = str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}"
 curr_path = 'Currents/'
 wind_path = 'Winds/'
 map_path = 'BaseMaps/'
+
+if not os.path.exists(data_path+'Output/'+today_path):
+    os.mkdir(data_path+'Output/'+today_path)
+    print("Daily directory created ")
+else:    
+    print("Daily directory already exists")
 from numb2month import numb2month
 
 #hycom variables for preprocessing data
@@ -54,6 +60,6 @@ wpath = 'wrf/'+"{0:02d}".format(start_time.month)+'_'+numb2month(start_time.mont
 for indx in range(0,len(namePosition)):
         print 'running ', namePosition[indx], ' position', coords[indx]
 	daily_output_path = os.path.dirname(join(data_path,'Output/', today_path, namePosition[indx]+'/'))
-        main(coords[indx], namePosition[indx], latbox,lonbox, start_time,duration,root_repo, forecast_path, data_path, daily_output_path, curr_path,wind_path, map_path, prefhy, sufhy,depths, uvarhy,vvarhy,latvarhy,lonvarhy,depthvarhy, path2savehy,prefw, sufw,latvarw,lonvarw,uvarw,vvarw,path2savew)
+	main(coords[indx], namePosition[indx], latbox,lonbox, start_time,duration,root_repo, forecast_path, data_path, daily_output_path, curr_path,wind_path, map_path, prefhy, sufhy,depths, uvarhy,vvarhy,latvarhy,lonvarhy,depthvarhy, path2savehy,prefw, sufw,latvarw,lonvarw,uvarw,vvarw,path2savew, wpath)
 
 

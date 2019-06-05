@@ -6,7 +6,7 @@ from gnome.environment import Water
 from os.path import join
 import time
 import sys
-def main(position, namePosition, latbox, lonbox, start_time, duration, root_repo, forecast_path, data_path, daily_output_path, curr_path,wind_path, map_path, prefhy, sufhy,depths, uvarhy,vvarhy,latvarhy,lonvarhy,depthvarhy, path2savehy,prefw, sufw,latvarw,lonvaw,uvarw,vvarw,path2savew):
+def main(position, namePosition, latbox, lonbox, start_time, duration, root_repo, forecast_path, data_path, daily_output_path, curr_path,wind_path, map_path, prefhy, sufhy,depths, uvarhy,vvarhy,latvarhy,lonvarhy,depthvarhy, path2savehy,prefw, sufw,latvarw,lonvarw,uvarw,vvarw,path2savew, wpath):
     tic = time.clock()  
     sys.path.append(forecast_path)
     sys.path.append(join(root_repo,'pyGnome/pre_processing'))
@@ -61,7 +61,7 @@ def main(position, namePosition, latbox, lonbox, start_time, duration, root_repo
     
     tic = time.clock()
     
-    model = make_modelF(timeStep,start_time, duration, weatheringSteps, map, uncertain, data_folder,curr_path,wind_path,map_path, reFloatHalfLife, windFile, currFile, tidalFile,
+    model = make_modelF(timeStep,start_time, duration, weatheringSteps, map, uncertain, data_path,curr_path,wind_path,map_path, reFloatHalfLife, windFile, currFile, tidalFile,
                num_elements, depths, lat, lon, daily_output_path,wind_scale, save_nc, timestep_outputs, weatherers, td,dif_coef,temp_water)
 
     model.full_run()
