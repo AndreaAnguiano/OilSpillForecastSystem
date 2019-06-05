@@ -1,7 +1,7 @@
 from netCDF4 import Dataset
 from datetime import datetime
 import numpy as np
-import pandas as pd
+#import pandas as pd
 import matplotlib.pyplot as plt
 def cutCoords(fileName,latvar,lonvar, latbox, lonbox, depths, depthvar, model):
 
