@@ -31,13 +31,12 @@ def make_modelF(timeStep, start_time, duration, weatheringSteps, map, uncertain,
         model.outputters += nc_outputter
 
     print 'adding a wind mover:'
-    print data_path+wind_path+windFile
     wind_file = get_datafile(os.path.join(data_path, wind_path, windFile))
     wind = GridWindMover(wind_file)
     #wind.wind_scale = wind_scale
     model.movers += wind
-    print 'adding a current mover: '
-    curr_file = get_datafile(os.path.join(data_path, curr_path, currFile))
+    print 'adding a current mover:'
+    curr_file = get_datafile(os.path.join(data_path,curr_path, currFile))
     model.movers += GridCurrentMover(curr_file, num_method='RK4')
     if td:
         random_mover = RandomMover(diffusion_coef=dif_coef)
@@ -49,7 +48,7 @@ def make_modelF(timeStep, start_time, duration, weatheringSteps, map, uncertain,
     wind = constant_wind(0.0001, 0, 'knots')
     waves = Waves(wind, water)
     model.weatherers += Evaporation(water, wind)
-    model.weatherers += Emulsification(waves)
+    #model.weatherers += Emulsification(waves)
     model.weatherers += NaturalDispersion(waves, water)
     return model
 
