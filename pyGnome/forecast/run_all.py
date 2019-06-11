@@ -17,9 +17,9 @@ now = datetime.now()
 start_time = datetime(now.year,now.month, now.day,1)-timedelta(days=1)
 duration = timedelta(days=4)
 #adding paths
-root_repo= '/media/storageBK/Andrea/python/OilSpillForecastSystem/'
+root_repo= '/home/andrea/python/OilSpillForecastSystem/'#'/media/storageBK/Andrea/python/OilSpillForecastSystem/'
 forecast_path= join(root_repo, 'pyGnome/forecast')
-data_path= '/media/storageBK/Andrea/python/forecastData/'
+data_path= '/DATA/forecastData/'
 today_path = str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'/'
 curr_path = 'Currents/'
 wind_path = 'Winds/'

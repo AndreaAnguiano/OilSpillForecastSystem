@@ -14,14 +14,12 @@ import sys
 #root_repo='/media/osz1/DATA/Dropbox/MyProjects/UNAM/OilSpill_Andrea/OilSpillForecastSystem/'
 root_repo='/home/andrea/python/OilSpillForecastSystem/'
 examples_folder=join(root_repo,'pyGnome/examples')
-print(examples_folder)
 
 sys.path.append(join(examples_folder,'CurrentsAndWinds'))
 sys.path.append(join(examples_folder,'only_Winds'))
 sys.path.append(join(examples_folder,'only_Currents'))
 sys.path.append(join(examples_folder,'Weatherers'))
 
-<<<<<<< HEAD
 from CurrentsAndWinds import CurrentsAndWinds
 from only_Winds import only_Winds
 from only_Currents import only_Currents
@@ -30,21 +28,11 @@ from weatherers import allWeatherers
 
 data_path = os.path.dirname(join(root_repo,'Data/'))
 output_path = os.path.dirname(join(root_repo,'Output/'))
-=======
-# from CurrentsAndWinds import CurrentsAndWinds
-# from only_Winds import only_Winds
-#from only_Currents import only_Currents
-from weatherers import allWeatherers
-# add paths
-
-data_path = join(root_repo,'Data')
-output_path = join(root_repo,'Output/')
->>>>>>> 01611bd64099c165f6fb10c1f1dac6b453086726
 curr_path = 'Currents/'
 wind_path = 'Winds/'
 map_path = 'BaseMaps/'
-#data_path = os.path.dirname('Data/')
-#output_path = os.path.dirname('output/')
+#adding the physical process choosed. 'Currents' for only currents, 'Winds' for only winds, 'CurrentsAndWinds' for currents and winds and 'Weatherers' for weatherers.  
+phys_example = 'Weatherers'
 
 #define map_file name
 map_file = 'gulf.bna'
@@ -74,9 +62,7 @@ wind_scale = 1
 uncertain = False
 
 #Files
-#windFile = 'WRF_20100422-20100731.nc'
 windFile = 'WRF_v3_20100422-20100511.nc'
-#currFile = 'Synthetic/Currtest.nc'
 currFile = 'hycom_v4_20100422-20100522.nc'
 
 tidalFile = 'VDATUM_EC2001.nc'
@@ -95,20 +81,16 @@ lon = -88.366
 save_nc = False
 
 if __name__ == '__main__':
-<<<<<<< HEAD
-    #scripting.make_images_dir()
-    model = CurrentsAndWinds(timeStep,start_time, duration, weatheringSteps, map, uncertain, data_path,curr_path,wind_path,map_path, reFloatHalfLife, windFile, currFile, tidalFile,
-=======
-    scripting.make_images_dir()
-    model = allWeatherers(timeStep,start_time, duration, weatheringSteps, map_file, uncertain, data_path,curr_path,wind_path,map_path, reFloatHalfLife, windFile, currFile, tidalFile,
->>>>>>> 01611bd64099c165f6fb10c1f1dac6b453086726
-               num_elements, depths, lat, lon, output_path,wind_scale, save_nc, timestep_outputs, weatherers, td)
+    if phys_example == 'CurrentsAndWinds':
+        model = CurrentsAndWinds(timeStep,start_time, duration, weatheringSteps, map_file, uncertain, data_path,curr_path,wind_path,map_path, reFloatHalfLife, windFile, currFile, tidalFile,num_elements, depths, lat, lon, output_path,wind_scale, save_nc, timestep_outputs, weatherers, td)
+    if phys_example == 'Currents':
+        model = only_Currents(timeStep,start_time, duration, weatheringSteps, map_file, uncertain, data_path,curr_path,wind_path,map_path, reFloatHalfLife, windFile, currFile, tidalFile,num_elements, depths, lat, lon, output_path,wind_scale, save_nc, timestep_outputs, weatherers, td)
+    if phys_example == 'Winds':
+        model = only_Winds(timeStep,start_time, duration, weatheringSteps, map_file, uncertain, data_path,curr_path,wind_path,map_path, reFloatHalfLife, windFile, currFile, tidalFile,num_elements, depths, lat, lon, output_path,wind_scale, save_nc, timestep_outputs, weatherers, td)
+    if phys_example == 'Weatherers':
+        model = allWeatherers(timeStep,start_time, duration, weatheringSteps, map_file, uncertain, data_path,curr_path,wind_path,map_path, reFloatHalfLife, windFile, currFile, tidalFile,num_elements, depths, lat, lon, output_path,wind_scale, save_nc, timestep_outputs, weatherers, td)
 
     model.full_run()
-    # for step in model:
-        #print step
-        # print "step: %.4i -- memuse: %fMB" % (step['step_num'],
-        #                                       utilities.get_mem_use())
     print("Done!!!")
 toc = time.clock()
 print(toc-tic)

@@ -17,11 +17,12 @@ import os, numpy as np
 from datetime import datetime, timedelta
 from gnome.weatherers import Emulsification, Evaporation, NaturalDispersion, ChemicalDispersion, Burn, Skimmer, WeatheringData
 
-def CurrentsAndWinds(timeStep, start_time, duration, weatheringSteps, map, uncertain, data_path, curr_path, wind_path, map_path, reFloatHalfLife, windFile, currFile, tidalFile, num_elements, depths, lat, lon, output_path, wind_scale, save_nc, timestep_outputs, weatherers, td):
+def CurrentsAndWinds(timeStep, start_time, duration, weatheringSteps, mapfile, uncertain, data_path, curr_path, wind_path, map_path, reFloatHalfLife, windFile, currFile, tidalFile, num_elements, depths, lat, lon, output_path, wind_scale, save_nc, timestep_outputs, weatherers, td):
     print 'initializing the model:'
     model = Model(time_step=timeStep, start_time=start_time, duration=duration)
     print 'adding the map:'
-    mapfile = get_datafile(os.path.join(data_path, map_path, map))
+    print (data_path, map_path, mapfile)
+    mapfile = get_datafile(os.path.join(data_path, map_path, mapfile))
     model.map = MapFromBNA(mapfile, refloat_halflife=reFloatHalfLife)
     print 'adding a renderer'
     model.outputters += Renderer(mapfile, output_path, size=(800, 600), output_timestep=timedelta(hours=timestep_outputs))
