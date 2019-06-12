@@ -15,7 +15,7 @@ cd WebGnomeClient
 
 Install requirements
 ```
-sudo apt install nodejs npm node-grunt-cli
+sudo apt install nodejs npm node-grunt-cli node-less
 ```
 
 Install WebGnomeClient and dependencies using npm
