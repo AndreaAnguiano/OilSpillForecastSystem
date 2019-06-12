@@ -1,4 +1,4 @@
-var tot_points = 7;
+var tot_points = 6;
 
 // Dinamically creating the objects of the animation controls
 for(i=1; i<=tot_points;i++){
