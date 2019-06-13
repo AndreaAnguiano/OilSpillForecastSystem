@@ -20,21 +20,26 @@ def main(position, namePosition, latbox, lonbox, start_time, duration, root_repo
     #pre-proccesing currents and winds data
     old_hycomfile = prefhy + str(start_time.year) +"{0:02d}".format(start_time.month)+"{0:02d}".format(start_time.day-1)+'12_t000.nc'
     old_wrffile =  prefw + str(start_time.year) + "-" +"{0:02d}".format(start_time.month)+'-'+ "{0:02d}".format(start_time.day-1)+sufw
-    if len(os.listdir(join(data_path,'hycom/')))==0 or os.path.exists(join(data_path,'hycom/',old_hycomfile)):
+    tod_poshycomfile = 'hycom_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
+    tod_poswrffile =  'WRF_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
+
+
+    if os.path.exists(join(data_path,'hycom/',old_hycomfile)):
     	print 'using old hycom files'
 	currFile = 'hycom_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day-1)+'.nc'
+	duration =duration -timedelta(days=1)
+
+    elif os.path.exists(join(data_path,curr_path,tod_poshycomfile)):
+	currFile = 'hycom_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc' 
     else:
     	hycomforecast(start_time, start_time+timedelta(days=5),join(data_path, 'hycom/') ,prefhy,sufhy,latbox,lonbox, depths, uvarhy,vvarhy, latvarhy,lonvarhy, depthvarhy, path2savehy)
     	currFile = 'hycom_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
-    
-    if len(os.listdir(join(data_path, wpath)))==0 or os.path.exists(join(data_path, wpath,old_wrffile)):
-	print 'using old wrf files'
-	windFile = 'WRF_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day-1)+'.nc'
-	duration =duration -timedelta(days=1)
-    else:
-    	wrfforecast(start_time, start_time+timedelta(days=5), join(data_path,wpath),prefw, sufw, latbox, lonbox, uvarw, vvarw, latvarw, lonvarw, path2savew)
+    if os.path.exists(join(data_path,wind_path,tod_poswrffile)):
 	windFile = 'WRF_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
-    
+    else:
+	wrfforecast(start_time, start_time+timedelta(days=5), join(data_path,wpath),prefw, sufw, latbox, lonbox, uvarw, vvarw, latvarw, lonvarw, path2savew)
+    windFile = 'WRF_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
+	 
     #define map name
     map = 'gulf.bna'
     reFloatHalfLife = -1 # Particles that beach on the shorelines are randomly refloated according to the specified half-life (specified in hours). 
