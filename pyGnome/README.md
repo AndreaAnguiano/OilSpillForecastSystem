@@ -38,7 +38,7 @@ conda config --add channels NOAA-ORR-ERD
 ```
 Add the conda-forge channel
 ```
-conda config --get channels
+conda config --add channels conda-forge
 ```
 
 ## 3. Cloning the PyGnome git repository
