@@ -25,7 +25,7 @@ def make_modelF(timeStep, start_time, duration, weatheringSteps, map, uncertain,
     mapfile = get_datafile(os.path.join(data_path, map_path, map))
     model.map = MapFromBNA(mapfile, refloat_halflife=reFloatHalfLife)
     print 'adding a renderer'
-    model.outputters += Renderer(mapfile, output_path, size=(800, 600), output_timestep=timedelta(hours=timestep_outputs))
+    #model.outputters += Renderer(mapfile, output_path, size=(800, 600), output_timestep=timedelta(hours=timestep_outputs))
     if save_nc:
         nc_outputter = NetCDFOutput(output_path+'/'+'output.nc', which_data='most', output_timestep=timedelta(hours=timestep_outputs))
         model.outputters += nc_outputter

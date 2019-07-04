@@ -19,10 +19,9 @@ def main(position, namePosition, latbox, lonbox, start_time, duration, root_repo
     
     #pre-proccesing currents and winds data
     old_hycomfile = prefhy + str(start_time.year) +"{0:02d}".format(start_time.month)+"{0:02d}".format(start_time.day-1)+'12_t000.nc'
-    old_wrffile =  prefw + str(start_time.year) + "-" +"{0:02d}".format(start_time.month)+'-'+ "{0:02d}".format(start_time.day-1)+sufw
+    tod_wrffile =  prefw + str(start_time.year) + "-" +"{0:02d}".format(start_time.month)+'-'+ "{0:02d}".format(start_time.day)+sufw
     tod_poshycomfile = 'hycom_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
     tod_poswrffile =  'WRF_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
-
 
     if os.path.exists(join(data_path,'hycom/',old_hycomfile)):
     	print 'using old hycom files'
@@ -36,9 +35,14 @@ def main(position, namePosition, latbox, lonbox, start_time, duration, root_repo
     	currFile = 'hycom_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
     if os.path.exists(join(data_path,wind_path,tod_poswrffile)):
 	windFile = 'WRF_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
+    elif os.path.exists(join(data_path,wpath,tod_wrffile))==False:
+        print 'using old wrf files'
+        windFile = 'WRF_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day-1)+'.nc'
+        if os.path.exists(join(data_path,'hycom/',old_hycomfile))==False:
+            duration = duration-timedelta(days=1)
     else:
 	wrfforecast(start_time, start_time+timedelta(days=5), join(data_path,wpath),prefw, sufw, latbox, lonbox, uvarw, vvarw, latvarw, lonvarw, path2savew)
-    windFile = 'WRF_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
+        windFile = 'WRF_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
 	 
     #define map name
     map = 'gulf.bna'
