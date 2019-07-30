@@ -1,0 +1,13 @@
+{
+  "name": "flotspline",
+  "homepage": "https://github.com/alexbardas/flot",
+  "_release": "8921179235",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "8921179235d6203083133965f45a466917501842"
+  },
+  "_source": "git://github.com/alexbardas/flot.git",
+  "_target": "*",
+  "_originalSource": "git://github.com/alexbardas/flot.git"
+}

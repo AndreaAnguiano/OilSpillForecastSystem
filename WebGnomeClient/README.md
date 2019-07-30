@@ -1,43 +1,46 @@
-# WebGnomeClient
+WebGnomeClient
+==============
+[![build status](https://ci.orr.noaa.gov/projects/2/status.png?ref=master)](https://ci.orr.noaa.gov/projects/2?ref=master)
 
-## Introduction
+Javascript client that uses the WebGnomeAPI to create and run py_gnome models. Instructions on how to setup a WebgnomeAPI server and OilLibraryAPI server can be found here [API Setup](API_SETUP.md)
 
-WebGnomeClient is a Javascript client that uses WebGnomeAPI to run `py_gnome`.
-Git is [WebGnomeClient](https://github.com/NOAA-ORR-ERD/WebGnomeClient)
+## Application Requirements
+* [WebGnomeAPI Server](https://gitlab.orr.noaa.gov/gnome/webgnomeapi.git)
+* [OilLibraryAPI Server](https://gitlab.orr.noaa.gov/gnome/oillibraryapi.git)
 
-## Install
+## System Requirments
+* [Node.js](http://nodejs.org/)
+* [npm](http://www.npmjs.org/)
+* grunt-cli
+* Some form of http server, webroot set to `./dist/build` and directory index set to `build.html` (created after running `grunt build`)
 
-First be sure you have already installed 'PyGnome'. Then clone and checkout proper branch.
-```
-git clone git@github.com:NOAA-ORR-ERD/WebGnomeClient.git
-cd WebGnomeClient
-```
+## Commands
+`npm install`
+> Installs all of the applications dependencies described in `package.json`. Calls `grunt install` upon completion.
 
-Install requirements
-```
-sudo apt install nodejs npm node-grunt-cli node-less
-```
+`grunt install`
+> Installs all client side dependancies from bower.
 
-Install WebGnomeClient and dependencies using npm
-```
-npm install
-```
+`grunt develop`
+> Sets up a working development environment by reinstalling client side dependancies, compiling less files, starting a http server on port 8080, and setting up a watch task for the less to recompile on change.
 
-Setting up, compile and documentation. It compiles a single index.html file.
-```
-grunt develop
-grunt build
-grunt docs
-```
+`grunt build`
+> Builds a compiled version of the application into a single index.html file (marginally supported currently, still has a few external image and font dependancies that are relatively pathed) located in `./dist/build/`.
 
-Start the http server:
-```
-grunt serve
-```
+`grunt build:lite`
+> Simpler version of `grunt build`, sets up the applcation for requirejs based dynamic builds.
 
-Testing using selenium:
-```
-grunt test
-```
+`grunt serve`
+> Starts a http server on port 8080 for serving dynamic builds.
 
+`grunt docs`
+> Generate JSDoc based documentation. Located in `./dist/docs`.
 
+`grunt lint`
+> Runs jshint over application source files
+
+`grunt test`
+> Runs jshint over application source files, followed by a series of selenium tests. (Only works if you have a working client on your system running at `http://localhost:8080`).
+
+`grunt test:demos`
+> Similar to `grunt test` but only runs use case specific demo tests.

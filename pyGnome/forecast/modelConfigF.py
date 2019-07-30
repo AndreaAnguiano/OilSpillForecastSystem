@@ -27,7 +27,8 @@ def make_modelF(timeStep, start_time, duration, weatheringSteps, map, uncertain,
     print 'adding a renderer'
     #model.outputters += Renderer(mapfile, output_path, size=(800, 600), output_timestep=timedelta(hours=timestep_outputs))
     if save_nc:
-        nc_outputter = NetCDFOutput(output_path+'/'+'output.nc', which_data='most', output_timestep=timedelta(hours=timestep_outputs))
+        scripting.remove_netcdf(output_path+'/'+'output.nc')
+        nc_outputter = NetCDFOutput(output_path+'/'+'output.nc', which_data='standard', output_timestep=timedelta(hours=timestep_outputs))
         model.outputters += nc_outputter
 
     print 'adding a wind mover:'

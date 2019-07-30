@@ -1,0 +1,38 @@
+{
+  "name": "ccapture.js",
+  "homepage": "https://github.com/spite/ccapture.js#readme",
+  "authors": [
+    "Jaume Sanchez <the.spite@gmail.com> (https://www.clicktorelease.com)"
+  ],
+  "description": "A library to capture canvas-based animations at a fixed framerate",
+  "moduleType": [
+    "globals"
+  ],
+  "ignore": [
+    "assets",
+    "examples",
+    "utils"
+  ],
+  "keywords": [
+    "canvas",
+    "record",
+    "capture",
+    "video",
+    "gif",
+    "webm"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "gif.js": "^0.1.6",
+    "whammy": "*"
+  },
+  "_cacheHeaders": {
+    "ETag": "\"65f814ec83e84f1b585baae457c2c3a33ea518d7\"",
+    "Content-Type": "application/zip",
+    "Content-Disposition": "attachment; filename=ccapture.js-1.0.6.2.zip"
+  },
+  "_release": "e-tag:65f814ec8",
+  "_source": "https://github.com/NOAA-ORR-ERD/ccapture.js/archive/1.0.6.2.zip",
+  "_target": "*",
+  "_originalSource": "https://github.com/NOAA-ORR-ERD/ccapture.js/archive/1.0.6.2.zip"
+}

@@ -14,8 +14,9 @@ coords = [[-95.01622889, 25.97096444],[-95.25811667, 25.36115583], [-96.56495556
 latbox = [18.2, 31]
 lonbox = [-98, -83]
 #spill timming
-now = datetime(2019,07,01)
+now = datetime(2019,7,28)
 start_time = datetime(now.year,now.month, now.day,1)-timedelta(days=1)
+print start_time
 duration = timedelta(days=4)
 #adding paths
 root_repo= '/home/andrea/python/OilSpillForecastSystem/'#'/media/storageBK/Andrea/python/OilSpillForecastSystem/'
@@ -73,6 +74,6 @@ for indx in range(0,len(namePosition)):
             print("Daily directory already exists")
 	main(coords[indx], namePosition[indx], latbox,lonbox, start_time,duration,root_repo, forecast_path, data_path, daily_output_path, curr_path,wind_path, map_path, prefhy, sufhy,depths, uvarhy,vvarhy,latvarhy,lonvarhy,depthvarhy, path2savehy,prefw, sufw,latvarw,lonvarw,uvarw,vvarw,path2savew, wpath)
         tic =time.clock()
-        plotparticlesforecast(daily_output_path, namePosition[indx], filenameplot, start_time, dt,latbox,lonbox, proj)
+        #plotparticlesforecast(daily_output_path, namePosition[indx], filenameplot, start_time, dt,latbox,lonbox, proj)
         toc = time.clock()
         print toc-tic

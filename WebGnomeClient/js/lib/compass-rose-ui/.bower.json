@@ -1,0 +1,31 @@
+{
+  "name": "compass-rose-ui",
+  "main": "compass-rose-ui.js",
+  "version": "1.1.0",
+  "homepage": "https://github.com/NOAA-ORR-ERD/compass-rose-ui",
+  "authors": [
+    "James Makela <james.makela@noaa.gov>"
+  ],
+  "description": "a javascript control for selecting velocity and direction for wind and water.",
+  "keywords": [
+    "compass",
+    "wind",
+    "water",
+    "current",
+    "ui",
+    "jquery"
+  ],
+  "license": "CC0",
+  "dependencies": {
+    "jquery": ">=1.9.0"
+  },
+  "_release": "1.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.1.0",
+    "commit": "0bb459bb7c15504e16bed664a129d5e2a1f55e30"
+  },
+  "_source": "https://github.com/NOAA-ORR-ERD/compass-rose-ui.git",
+  "_target": "1.1.*",
+  "_originalSource": "compass-rose-ui"
+}

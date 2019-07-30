@@ -1,0 +1,13 @@
+{
+  "name": "JUMFlot",
+  "homepage": "https://github.com/jumjum123/JUMFlot",
+  "_release": "70477f7dff",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "70477f7dff38a25f32aa6207a403d91dfd621b35"
+  },
+  "_source": "https://github.com/jumjum123/JUMFlot.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/jumjum123/JUMFlot.git"
+}

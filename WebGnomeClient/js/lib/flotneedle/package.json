@@ -1,0 +1,15 @@
+{
+  "name": "flotTooltip",
+  "version": "0.0.1",
+  "description": "",
+  "main": "flotTooltip.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "flot",
+    "graph"
+  ],
+  "author": "Alexander Miranda-NOAA (alex.miranda@noaa.gov)",
+  "license": "MIT"
+}

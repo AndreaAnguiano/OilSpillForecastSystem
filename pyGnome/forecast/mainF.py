@@ -34,8 +34,10 @@ def main(position, namePosition, latbox, lonbox, start_time, duration, root_repo
     	hycomforecast(start_time, start_time+timedelta(days=5),join(data_path, 'hycom/') ,prefhy,sufhy,latbox,lonbox, depths, uvarhy,vvarhy, latvarhy,lonvarhy, depthvarhy, path2savehy)
     	currFile = 'hycom_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
     if os.path.exists(join(data_path,wind_path,tod_poswrffile)):
+        print 'aqui'
 	windFile = 'WRF_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
     elif os.path.exists(join(data_path,wpath,tod_wrffile))==False:
+        print join(data_path,wpath,tod_wrffile)
         print 'using old wrf files'
         windFile = 'WRF_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day-1)+'.nc'
         if os.path.exists(join(data_path,'hycom/',old_hycomfile))==False:

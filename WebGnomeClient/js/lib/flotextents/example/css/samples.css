@@ -1,0 +1,94 @@
+body {
+    position: relative;
+    font-family: helvetica,arial,serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+#page-content {
+    text-align: left;
+    width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px;
+    border-left: solid 1px silver;
+    border-right: solid 1px silver;
+}
+.bar {
+    border: solid 1px silver;
+    position: relative;
+    display: block;
+    clear: both;
+    height: 64px;
+    scroll: auto;
+    overflow: auto;
+}
+p, pre {
+    margin: 12px;
+    padding: 6px;
+}
+pre.console {
+    border: solid 1px silver;
+}
+pre.code {
+    border: solid 1px silver;
+    background: rgb(208, 208, 208);
+}
+pre.result {
+    border: solid 1px silver;
+    position: relative;
+    height: 64px;
+    scroll: auto;
+    overflow: auto;
+    font-size: smaller;
+    padding-top: 30px;
+    clear: both;
+}
+pre.request, pre.response {
+    border: solid 1px silver;
+    position: relative;
+    width: 45%;
+    height: 200px;
+    max-height: 500px;
+    scroll: auto;
+    overflow: auto;
+    font-size: smaller;
+    padding-top: 30px;
+}
+pre.request {
+    float: left;
+    clear: left;
+}
+pre.response {
+    float: right;
+    clear: right;
+}
+pre.request h3, pre.response h3, pre.result h3 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    text-indent: 12px;
+    line-height: 24px;
+    height: 27px;
+    border-bottom: solid 1px silver;
+    background: rgb(224, 224, 224);
+    display: block;
+    width: 100%;
+    z-order: 5;
+}
+span.return {
+    font-weight: bold;
+    margin: 12px 20px;
+    display: block;
+    text-overflow: ellipsis
+}
+div.cr_footer {
+    margin: 30px 0 0 0;
+    padding: 10px 20px;
+    font-size: small;
+    color: grey;
+    border-top: solid 1px silver;
+    clear: both;
+}
