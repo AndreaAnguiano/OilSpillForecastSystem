@@ -14,7 +14,7 @@ coords = [[-95.01622889, 25.97096444],[-95.25811667, 25.36115583], [-96.56495556
 latbox = [18.2, 31]
 lonbox = [-98, -83]
 #spill timming
-now = datetime(2019,7,28)
+now = datetime.today()
 start_time = datetime(now.year,now.month, now.day,1)-timedelta(days=1)
 print start_time
 duration = timedelta(days=4)

@@ -52,8 +52,8 @@ def wrfforecast(startDate, endDate, path, prefix,sufix, latbox, lonbox, uvar, vv
     time = dataset.createVariable('time', np.float64, ('time',))
     lon = dataset.createVariable('lon', np.float32, ('lon',))
     lat = dataset.createVariable('lat', np.float32, ('lat',))
-    u = dataset.createVariable('u', np.float32, ('time', 'lat', 'lon',), fill_value=fillValue)
-    v = dataset.createVariable('v', np.float32, ('time','lat', 'lon',), fill_value=fillValue)
+    u = dataset.createVariable('air_u', np.float32, ('time', 'lat', 'lon',), fill_value=fillValue)
+    v = dataset.createVariable('air_v', np.float32, ('time','lat', 'lon',), fill_value=fillValue)
 
     # adding global atributtes
     dataset.grid_type = 'REGULAR'
@@ -71,12 +71,12 @@ def wrfforecast(startDate, endDate, path, prefix,sufix, latbox, lonbox, uvar, vv
     time.units = 'hours since ' + str(yearsd) + '-' + str(monthsd) + '-' + str(daysd) + ' 00:00:00'
     time.standard_name = 'time'
 
-    u.long_name = 'Eastward Water Velocity'
-    u.standard_name = 'eastward_sea_water_velocity'
+    u.long_name = 'Eastward Air Velocity'
+    u.standard_name = 'eastward_air_velocity'
     u.units = 'm/s'
 
-    v.long_name = 'Northward Water Velocity'
-    v.standard_name = 'northward_sea_water_velocity'
+    v.long_name = 'Northward Air Velocity'
+    v.standard_name = 'northward_air_velocity'
     v.units = 'm/s'
 
     timenetcdf = [x for x in range(1, len(ncTime) +1)]

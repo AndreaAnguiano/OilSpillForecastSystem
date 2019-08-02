@@ -39,6 +39,10 @@ def main(position, namePosition, latbox, lonbox, start_time, duration, root_repo
     elif os.path.exists(join(data_path,wpath,tod_wrffile))==False:
         print join(data_path,wpath,tod_wrffile)
         print 'using old wrf files'
+        if start_time.day-1 == 0:
+            tempday = start_time -timedelta(days=1)
+            windFile = 'WRF_forecast_'+str(tempday.year)+ "{0:02d}".format(tempday.month)+ "{0:02d}".format(tempday.day)+'.nc'
+        else:
         windFile = 'WRF_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day-1)+'.nc'
         if os.path.exists(join(data_path,'hycom/',old_hycomfile))==False:
             duration = duration-timedelta(days=1)

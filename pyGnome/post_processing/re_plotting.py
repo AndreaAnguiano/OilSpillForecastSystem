@@ -13,7 +13,7 @@ lonbox = [-98, -80]
 #now = datetime(2019,07,9)
 #start_time = datetime(now.year,now.month, now.day,1)-timedelta(days=1)
 for i in range(0,2):
-    start_time =datetime(2019,7,23)+timedelta(days=i)
+    start_time =datetime(2019,7,27)+timedelta(days=i)
 #adding paths
     data_path= '/DATA/forecastData/'#'/media/storageBK/Andrea/python/forecastData/'
     today_path = str(start_time.year)+'-'+ "{0:02d}".format(start_time.month)+'-'+ "{0:02d}".format(start_time.day)+'/'
