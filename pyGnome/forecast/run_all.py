@@ -15,20 +15,21 @@ latbox = [18.2, 31]
 lonbox = [-98, -83]
 #spill timming
 now = datetime.today()
-start_time = datetime(now.year,now.month, now.day,1)-timedelta(days=1)
+start_time = datetime(now.year,now.month, now.day,1)#-timedelta(days=1)
 print start_time
 duration = timedelta(days=4)
 #adding paths
-root_repo= '/home/andrea/python/OilSpillForecastSystem/'#'/media/storageBK/Andrea/python/OilSpillForecastSystem/'
+root_repo= '/media/storageBK/Andrea/python/OilSpillForecastSystem/'
 forecast_path= join(root_repo, 'pyGnome/forecast')
-data_path= '/DATA/forecastData/'#'/media/storageBK/Andrea/python/forecastData/'
+data_path= '/media/storageBK/Andrea/python/forecastData/'
 today_path = str(start_time.year)+'-'+ "{0:02d}".format(start_time.month)+'-'+ "{0:02d}".format(start_time.day)+'/'
+output_path = '/var/www/html/OilSpill_Forecast/images/'
 curr_path = 'Currents/'
 wind_path = 'Winds/'
 map_path = 'BaseMaps/'
 
-if not os.path.exists(data_path+'Output/'+today_path):
-    os.mkdir(data_path+'Output/'+today_path)
+if not os.path.exists(output_path+today_path):
+    os.mkdir(output_path+today_path)
     print("Daily directory created ")
 else:    
     print("Daily directory already exists")
@@ -66,7 +67,7 @@ dt = 1
 filenameplot='output.nc'
 for indx in range(0,len(namePosition)):
         print 'running ', namePosition[indx], ' position', coords[indx]
-	daily_output_path = os.path.dirname(join(data_path,'Output/', today_path, namePosition[indx]+'/')) 
+	daily_output_path = os.path.dirname(join(output_path, today_path, namePosition[indx]+'/')) 
         if not os.path.exists(daily_output_path):
             os.mkdir(daily_output_path)
             print("Daily directory created ")
@@ -74,6 +75,6 @@ for indx in range(0,len(namePosition)):
             print("Daily directory already exists")
 	main(coords[indx], namePosition[indx], latbox,lonbox, start_time,duration,root_repo, forecast_path, data_path, daily_output_path, curr_path,wind_path, map_path, prefhy, sufhy,depths, uvarhy,vvarhy,latvarhy,lonvarhy,depthvarhy, path2savehy,prefw, sufw,latvarw,lonvarw,uvarw,vvarw,path2savew, wpath)
         tic =time.clock()
-        #plotparticlesforecast(daily_output_path, namePosition[indx], filenameplot, start_time, dt,latbox,lonbox, proj)
+        plotparticlesforecast(daily_output_path, namePosition[indx], filenameplot, start_time, dt,latbox,lonbox, proj)
         toc = time.clock()
         print toc-tic
