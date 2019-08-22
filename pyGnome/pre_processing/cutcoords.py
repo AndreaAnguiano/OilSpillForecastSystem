@@ -30,7 +30,7 @@ def cutCoords(fileName,latvar,lonvar, latbox, lonbox, depths, depthvar, model):
         depthmax = [x for x in depthValues if x == depths[-1]][0]
         depthValues = depthValues[np.where(depthValues == depthmin)[0][0]:np.where(depthValues == depthmax)[0][0] + 1]
         return [latValues, lonValues,depthValues, latminindx, latmaxindx, lonminindx, lonmaxindx]
-    if  model=='wrf':
+    elif  model=='wrf':
         latValues = latValues[0,:,:]
         lonValues = lonValues[0,:,:]
         #print 'latshape: ', latValues.shape, 'lonShape: ', lonValues.shape
@@ -55,21 +55,22 @@ def cutCoords(fileName,latvar,lonvar, latbox, lonbox, depths, depthvar, model):
         latValues = latValuestemp[latminindx:latmaxindx+1]
         #print 'final_lat: ', latValues.shape,latValues, 'final_lon: ', lonValues.shape, lonValues
         return [latValues, lonValues, latminindx, latmaxindx, lonminindx, lonmaxindx]
-#startdate = datetime(2019,04,01)
-#enddate = datetime(2019,04,01)
-#pth = '/DATA/forecastData/wrf/04_abril/'
-#pref = 'wrfout_d01_'
-#latbox = [18.2, 31]
-#lonbox = [-98, -83]
-#suf= '_00.nc'
+
+
+#startdate = datetime(2019,8,19)
+#enddate = datetime(2019,8,19)
+#pth = '/DATA/forecastData/fvcom/'
+#pref = 'Sargazo04_'
+#latbox = [16, 17]
+#lonbox = [274, 272]
+#suf= '_sup.nc'
 #depths= 0
-#latvar = 'XLAT'
-#lonvar = 'XLONG'
-#uvar = 'U10'
-#vvar = 'V10'
-#path2save = '../../Data/Winds/'
-#fileName = pth+'wrfout_d01_2019-04-01_00.nc'
-#depths = 0
-#depthvar = 'depthvar'
-#model = 'wrf'
+#latvar = 'lat'
+#lonvar = 'lon'
+#uvar = 'u'
+#vvar = 'v'
+#path2save = '/DATA/forecastData/test/'
+#fileName = pth+pref+'0001'+suf
+#depthvar = 'siglay'
+#model = 'fvcom'
 #cutCoords(fileName,latvar,lonvar, latbox, lonbox, depths, depthvar, model)

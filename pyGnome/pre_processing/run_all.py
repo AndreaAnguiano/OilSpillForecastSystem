@@ -12,7 +12,7 @@ lonbox = [-98, -83]
 
 #spill timming
 now = datetime.today()
-start_time = datetime(now.year,now.month, now.day,1)-timedelta(days=1)
+start_time = datetime(now.year,now.month, now.day,1)#-timedelta(days=1)
 print start_time
 duration = timedelta(days=4)
 #adding paths

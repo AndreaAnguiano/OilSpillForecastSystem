@@ -26,21 +26,21 @@ from only_Currents import only_Currents
 from weatherers import allWeatherers
 # add paths
 
-data_path = os.path.dirname(join(root_repo,'Data/'))
-output_path = os.path.dirname(join(root_repo,'Output/'))
-curr_path = 'Currents/'
+data_path = os.path.dirname('/DATA/forecastData/')
+output_path = os.path.dirname(join(data_path, 'Output/'))
+curr_path = 'fvcom/'
 wind_path = 'Winds/'
 map_path = 'BaseMaps/'
 #adding the physical process choosed. 'Currents' for only currents, 'Winds' for only winds, 'CurrentsAndWinds' for currents and winds and 'Weatherers' for weatherers.  
-phys_example = 'Weatherers'
+phys_example = 'Currents'
 
 #define map_file name
 map_file = 'gulf.bna'
 reFloatHalfLife = -1 # Particles that beach on the shorelines are randomly refloated according to the specified half-life (specified in hours). 
 
 # spill timmin
-start_time = datetime(2010,4,22)
-duration = timedelta(days=10)
+start_time = datetime(2019,8,19)
+duration = timedelta(days=1)
 
 #timestep (s)
 timeStep = 3600
@@ -48,8 +48,8 @@ timeStep = 3600
 timestep_outputs = 1
 
 #oil decay (weathering)
-weatherers = False
-weatheringSteps = 5 #how many weathering substeps to run inside a single model time step
+weatherers = True
+weatheringSteps = 1 #how many weathering substeps to run inside a single model time step
 evaporation = False
 
 #turbulent diffusion
@@ -62,8 +62,8 @@ wind_scale = 1
 uncertain = False
 
 #Files
-windFile = 'WRF_v3_20100422-20100511.nc'
-currFile = 'hycom_v4_20100422-20100522.nc'
+windFile = 'WRF_v3_20100422-2010051.nc'
+currFile = 'fvcom_forecast_test.nc'
 
 tidalFile = 'VDATUM_EC2001.nc'
 
@@ -74,8 +74,8 @@ num_elements = 28181
 depths = [0]
 
 #spill location
-lat = 28.738
-lon = -88.366
+lat = 17
+lon = 276
 
 #saving options
 save_nc = False
