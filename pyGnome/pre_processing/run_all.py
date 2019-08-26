@@ -11,7 +11,7 @@ latbox = [18.2, 31]
 lonbox = [-98, -83]
 
 #spill timming
-now = datetime.today()
+now = datetime(2019,8,23)
 start_time = datetime(now.year,now.month, now.day,1)#-timedelta(days=1)
 print start_time
 duration = timedelta(days=4)
@@ -64,18 +64,21 @@ path2savew = join(data_path, wind_path)
 wpath = 'wrf/'+"{0:02d}".format(start_time.month)+'_'+numb2month(start_time.month)+'/'
 
 #pre-proccesing currents and winds data
-old_hycomfile = prefhy + str(start_time.year) +"{0:02d}".format(start_time.month)+"{0:02d}".format(start_time.day-1)+'12_t000.nc'
+yest = start_time - timedelta(days=1)
+tod_hycomfile = prefhy + str(start_time.year) + "{0:02d}".format(start_time.month)+"{0:02d}".format(start_time.day)+'12_t000.nc'
+old_hycomfile = prefhy + str(yest.year) +"{0:02d}".format(yest.month)+"{0:02d}".format(yest.day)+'12_t000.nc'
 tod_wrffile =  prefw + str(start_time.year) + "-" +"{0:02d}".format(start_time.month)+'-'+ "{0:02d}".format(start_time.day)+sufw
 tod_poshycomfile = 'hycom_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
 tod_poswrffile =  'WRF_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
 
-if os.path.exists(join(data_path,'hycom/',old_hycomfile)):
-    print 'using old hycom files'
-    currFile = 'hycom_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day-1)+'.nc'
-    duration =duration -timedelta(days=1)
-
-elif os.path.exists(join(data_path,curr_path,tod_poshycomfile)):
+if os.path.exists(join(data_path,curr_path,tod_poshycomfile)):
     currFile = 'hycom_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
+
+if not os.path.exist(join(data_path,curr_path, tod_poshycomfile)) and not os.path.exist(join(data_path,'hycom/',tod_hycomfile)):
+    'using old hycom files'
+    duration = duration - timedelta(days=1)
+    currFile = 'hycom_forecast'+str(yest.year)+ "{0:02d}".format(yest.month)+ "{0:02d}".format(yest.day)+'.nc'
+
 else:
     hycomforecast(start_time, start_time+timedelta(days=5),join(data_path, 'hycom/') ,prefhy,sufhy,latbox,lonbox, depths, uvarhy,vvarhy, latvarhy,lonvarhy, depthvarhy, path2savehy)
     currFile = 'hycom_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
@@ -85,8 +88,8 @@ elif os.path.exists(join(data_path,wpath,tod_wrffile))==False:
     print join(data_path,wpath,tod_wrffile)
     print 'using old wrf files'
     windFile = 'WRF_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day-1)+'.nc'
-    if os.path.exists(join(data_path,'hycom/',old_hycomfile))==False:
-        duration = duration-timedelta(days=1)
+    if duration > timdelta(days=3):
+        duration = timedelta(days=3)
 else:
         wrfforecast(start_time, start_time+timedelta(days=5), join(data_path,wpath),prefw, sufw, latbox, lonbox, uvarw, vvarw, latvarw, lonvarw, path2savew)
         windFile = 'WRF_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
