@@ -27,7 +27,7 @@ def CurrentsAndWinds(timeStep, start_time, duration, weatheringSteps, mapfile, u
     print 'adding a renderer'
     model.outputters += Renderer(mapfile, output_path, size=(800, 600), output_timestep=timedelta(hours=timestep_outputs))
     if save_nc:
-        nc_outputter = NetCDFOutput(netcdf_file, which_data='most', output_timestep=timedelta(hours=timestep_outputs))
+        nc_outputter = NetCDFOutput('currentsAndWinds_example.nc', which_data='standard', output_timestep=timedelta(hours=timestep_outputs))
         model.outputters += nc_outputter
     print 'adding a wind mover:'
     wind_file = get_datafile(os.path.join(data_path, wind_path, windFile))

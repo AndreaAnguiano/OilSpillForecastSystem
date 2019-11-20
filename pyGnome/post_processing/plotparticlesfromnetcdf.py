@@ -14,7 +14,7 @@ import numpy as np
 plt.clf()
 lat = [18.1, 30]
 lon = [-98, -88]
-ax = geo_plots.add_map(bbox=(-98, -88,18.1, 30), bna='../Data/gulf.bna')
+ax = geo_plots.add_map(bbox=(-98, -88,18.1, 30), bna='/DATA/forecastData/BaseMaps/gulf.bna')
 #if bbox not specified, this will use map bounds from bna
 
 def contour_particles(ax, filename, t, depth=0, varname=None, criteria=None, levels=[0.1, 0.4, 0.8, 1]):
@@ -64,7 +64,7 @@ def contour_particles(ax, filename, t, depth=0, varname=None, criteria=None, lev
     print 'Closest time found: ', times[tidx]
 
     return ax
-contour_particles(ax,'../outputs/testtime/test_output.nc',datetime(2010,04,28),depth=0,varname=None,criteria=None,levels=[0.1, 0.4, 0.8, 1])
+contour_particles(ax,'../outputs/testtime/test_output.nc',datetime(2019,07,24),depth=0,varname=None,criteria=None,levels=[0.1, 0.4, 0.8, 1])
 #geo_plots.plot_all_trajectories(ax,'../outputs/testtime/test_output.nc',addmarker=True)
 #geo_plots.plot_single_trajectory(ax,'../outputs/testtime/test_output.nc',1,color='r')
 

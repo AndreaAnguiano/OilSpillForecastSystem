@@ -17,7 +17,7 @@ import cartopy.crs as ccrs
 from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
 
 data_path = '/DATA/forecastData/'
-output_test='/DATA/forecastData/Output/2019-06-11/P2/output.nc'
+output_test='/DATA/forecastData/Output/2019-07-19/P1/output.nc'
 for i in range(1,72):
     t0 = datetime(2019,06,11,1)+timedelta(hours=i)
     ax = geo_plots.add_map(bbox=(-98, -80,18.1, 30), bna=data_path+'BaseMaps/gulf.bna')
