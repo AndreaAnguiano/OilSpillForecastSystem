@@ -24,12 +24,13 @@ def only_Currents(timeStep, start_time, duration, weatheringSteps, map, uncertai
     mapfile = get_datafile(os.path.join(data_path, map_path, map))
     model.map = MapFromBNA(mapfile, refloat_halflife=reFloatHalfLife)
     print 'adding a renderer'
-    model.outputters += Renderer(mapfile, output_path, size=(800, 600), output_timestep=timedelta(hours=timestep_outputs))
+    #model.outputters += Renderer(mapfile, output_path, size=(800, 600), output_timestep=timedelta(hours=timestep_outputs))
     if save_nc:
-        nc_outputter = NetCDFOutput(netcdf_file, which_data='most', output_timestep=timedelta(hours=timestep_outputs))
+        nc_outputter = NetCDFOutput('only_currents_example.nc', which_data='most', output_timestep=timedelta(hours=timestep_outputs))
         model.outputters += nc_outputter
     print 'adding a current mover: '
     curr_file = get_datafile(os.path.join(data_path, curr_path, currFile))
+    print curr_file
     model.movers += GridCurrentMover(curr_file, num_method='RK4')
     if td:
         random_mover = RandomMover(diffusion_coef=10000)

@@ -8,10 +8,10 @@ import time
 import sys
 tic = time.clock()
 latbox = [18.2, 31]
-lonbox = [-98, -83]
+lonbox = [-98, -80]
 
 #spill timming
-now = datetime(2019,8,23)
+now = datetime.today()
 start_time = datetime(now.year,now.month, now.day,1)#-timedelta(days=1)
 print start_time
 duration = timedelta(days=4)
@@ -74,7 +74,7 @@ tod_poswrffile =  'WRF_forecast_'+str(start_time.year)+ "{0:02d}".format(start_t
 if os.path.exists(join(data_path,curr_path,tod_poshycomfile)):
     currFile = 'hycom_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
 
-if not os.path.exist(join(data_path,curr_path, tod_poshycomfile)) and not os.path.exist(join(data_path,'hycom/',tod_hycomfile)):
+if not os.path.exists(join(data_path,curr_path, tod_poshycomfile)) and not os.path.exists(join(data_path,'hycom/',tod_hycomfile)):
     'using old hycom files'
     duration = duration - timedelta(days=1)
     currFile = 'hycom_forecast'+str(yest.year)+ "{0:02d}".format(yest.month)+ "{0:02d}".format(yest.day)+'.nc'
@@ -88,7 +88,7 @@ elif os.path.exists(join(data_path,wpath,tod_wrffile))==False:
     print join(data_path,wpath,tod_wrffile)
     print 'using old wrf files'
     windFile = 'WRF_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day-1)+'.nc'
-    if duration > timdelta(days=3):
+    if duration > timedelta(days=3):
         duration = timedelta(days=3)
 else:
         wrfforecast(start_time, start_time+timedelta(days=5), join(data_path,wpath),prefw, sufw, latbox, lonbox, uvarw, vvarw, latvarw, lonvarw, path2savew)

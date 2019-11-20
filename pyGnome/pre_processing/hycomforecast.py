@@ -30,7 +30,6 @@ def hycomforecast(startDate, endDate, path,prefix,sufix,latbox,lonbox, depths, u
     lonminindx = coords[5]
     lonmaxindx = coords[6]
     netcdfsname = [prefix + str(yearsd) +"{0:02d}".format(monthsd)+"{0:02d}".format(daysd)+'12'+'_t'+"{0:03d}".format(indx)+'.nc' for indx in range(0,133) if indx%24==0]
-    print 'netcdfsnames: ', netcdfsname
 
     uData = np.zeros((len(netcdfsname), len(depths), len(latValues), len(lonValues)))
     vData = np.zeros((len(netcdfsname), len(depths), len(latValues), len(lonValues)))

@@ -1,3 +1,4 @@
 *.swp
 *.pyc
 Local_visualizer/images/
+/Local_Visualizer/nbproject/private/
