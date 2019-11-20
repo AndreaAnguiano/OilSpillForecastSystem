@@ -25,13 +25,12 @@ def main(position, namePosition, latbox, lonbox, start_time, duration, root_repo
     tod_poshycomfile = 'hycom_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
     tod_poswrffile =  'WRF_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
 
-
     if os.path.exists(join(data_path,curr_path,tod_poshycomfile)):
 	currFile = 'hycom_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc' 
-    if not os.path.exist(join(data_path,curr_path, tod_poshycomfile)) and not os.path.exist(join(data_path,'hycom/',tod_hycomfile)):
+    elif not os.path.exists(join(data_path,curr_path, tod_poshycomfile)) and not os.path.exists(join(data_path,'hycom/',tod_hycomfile)):
         'using old hycom files'
         duration = duration - timedelta(days=1)
-        currFile = 'hycom_forecast'+str(yest.year)+ "{0:02d}".format(yest.month)+ "{0:02d}".format(yest.day)+'.nc'
+        currFile = 'hycom_forecast_'+str(yest.year)+ "{0:02d}".format(yest.month)+ "{0:02d}".format(yest.day)+'.nc'
     else:
     	hycomforecast(start_time, start_time+timedelta(days=5),join(data_path, 'hycom/') ,prefhy,sufhy,latbox,lonbox, depths, uvarhy,vvarhy, latvarhy,lonvarhy, depthvarhy, path2savehy)
     	currFile = 'hycom_forecast_'+str(start_time.year)+ "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
@@ -82,7 +81,7 @@ def main(position, namePosition, latbox, lonbox, start_time, duration, root_repo
     dif_coef = 10000
     
     tic = time.clock()
-    
+    print duration 
     model = make_modelF(timeStep,start_time, duration, weatheringSteps, map, uncertain, data_path,curr_path,wind_path,map_path, reFloatHalfLife, windFile, currFile, tidalFile,
                num_elements, depths, lat, lon, daily_output_path,wind_scale, save_nc, timestep_outputs, weatherers, td,dif_coef,temp_water)
 

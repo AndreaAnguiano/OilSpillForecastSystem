@@ -43,7 +43,7 @@ def make_modelF(timeStep, start_time, duration, weatheringSteps, map, uncertain,
         random_mover = RandomMover(diffusion_coef=dif_coef)
         model.movers += random_mover
     print 'adding spill'
-    model.spills += point_line_release_spill(num_elements=num_elements, start_position=(lon, lat, 0), release_time=start_time, end_release_time=start_time + duration)
+    model.spills += point_line_release_spill(num_elements=num_elements, start_position=(lon, lat, 0), release_time=start_time, end_release_time=start_time + duration, substance='AD04001', amount=9600000, units='kg')
     print 'adding weatherers'
     water = Water(temp_water)
     wind = constant_wind(0.0001, 0, 'knots')
