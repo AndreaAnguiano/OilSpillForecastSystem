@@ -31,13 +31,6 @@ from hycomforecast import hycomforecast
 from wrfforecast import wrfforecast
 from numb2month import numb2month
 
-
-if not os.path.exists(data_path+'Output/'+today_path):
-    os.mkdir(data_path+'Output/'+today_path)
-    print("Daily directory created ")
-else:
-    print("Daily directory already exists")
-
 #hycom variables for preprocessing data
 prefhy = 'hycom_gomu_901m000_'
 sufhy = '_t000.nc'

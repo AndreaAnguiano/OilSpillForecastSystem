@@ -40,7 +40,7 @@ depthvarfv = 'siglay'
 depths = [0]
 path2savefv = join(data_path, curr_path)
 fvpath = join('fvcom/', fvcom_today_path)
-grid_path = join(data_path,'fvcom/', 'grids/')
+grid_path = join(data_path, 'fvcom/', 'grids/')
 # WRF variables for preprocessing data
 prefw = 'wrfout_d01_'
 sufw = '_00.nc'

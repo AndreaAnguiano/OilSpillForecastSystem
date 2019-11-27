@@ -32,13 +32,13 @@ def fvcomforecast(startDate, endDate, path, fileName, latbox, lonbox, depths, uv
     dataset.createDimension('nbi', 4)
 
     # Adding variables
-    time = dataset.createVariable('time', np.float64, ('time',))
+    time = dataset.createVariable('time', np.float32, ('time',))
     lon = dataset.createVariable('lon', np.float32, ('node',))
     lat = dataset.createVariable('lat', np.float32, ('node',))
     u = dataset.createVariable('u', np.float32, ('time', 'nele',), fill_value=fillValue)
     v = dataset.createVariable('v', np.float32, ('time', 'nele',), fill_value=fillValue)
     nv = dataset.createVariable('nv', np.int32, ('three', 'nele',))
-    bnd = dataset.createVariable('bnb', np.int32, ('nbnd', 'nbi',))
+    bnd = dataset.createVariable('bnd', np.int32, ('nbnd', 'nbi',))
     nbe = dataset.createVariable('nbe', np.int32, ('three', 'nele',))
     # adding global atributtes
     dataset.grid_type = 'Triangular'
@@ -55,27 +55,29 @@ def fvcomforecast(startDate, endDate, path, fileName, latbox, lonbox, depths, uv
     time.long_name = 'Time'
     time.units = 'days since 1858-11-17 00:00:00'
     time.standard_name = 'time'
+    time.time_zone = 'UTC'
+    time.format = 'defined reference date'
 
     u.long_name = 'Eastward Water Velocity'
     u.standard_name = 'eastward_sea_water_velocity'
     u.units = 'm/s'
-    u.coordinates = 'time siglay latc lonc'
-    u.mesh = 'fvcom_mesh'
-    u.grid = 'fvcom_grid'
-    u.location = 'face'
-    u.type = 'data'
+    #u.coordinates = 'time siglay latc lonc'
+    #u.mesh = 'fvcom_mesh'
+    #u.grid = 'fvcom_grid'
+    #u.location = 'face'
+    #u.type = 'data'
 
     v.long_name = 'Northward Water Velocity'
     v.standard_name = 'northward_sea_water_velocity'
     v.units = 'm/s'
-    v.coordinates = 'time siglay latc lonc'
-    v.mesh = 'fvcom_mesh'
-    v.grid = 'fvcom_grid'
-    v.location = 'face'
-    v.type = 'data'
+    #v.coordinates = 'time siglay latc lonc'
+    #v.mesh = 'fvcom_mesh'
+    #v.grid = 'fvcom_grid'
+    #v.location = 'face'
+    #v.type = 'data'
 
-    nbe.order = 'cw'
-
+    #nbe.order = 'cw'
+    nv.lon_name = 'nodes surrounding element'
     lat[:] = latValues[:]
     lon[:] = lonValues[:]
     time[:] = timenetcdf[:]
