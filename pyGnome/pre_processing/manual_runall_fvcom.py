@@ -9,7 +9,7 @@ latbox = [16, 17]
 lonbox = [274, 272]
 
 # spill timming
-now = datetime.today()
+now = datetime(2019,11,28)
 start_time = datetime(now.year, now.month, now.day, 1)  # -timedelta(days=1)
 print start_time
 duration = timedelta(days=4)

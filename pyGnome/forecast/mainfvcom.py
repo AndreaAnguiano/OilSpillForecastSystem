@@ -19,14 +19,15 @@ def mainfvcom(position, namePosition, latbox, lonbox, start_time, duration, root
     yest = start_time - timedelta(days=1)
     tod_wrffile = prefw + str(start_time.year) + "-" + "{0:02d}".format(start_time.month)+ '-' + "{0:02d}".format(start_time.day)+ sufw
     tod_poswrffile = 'WRF_forecast_'+str(start_time.year) + "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
-    if os.path.exists(join(data_path, fvpath)):
+    
+    if os.path.exists(join(data_path, fvpath,fvcom_fileName)):
         fvcomforecast(start_time, start_time + duration, join(data_path, fvpath), fvcom_fileName, latbox, lonbox, depths, uvarfv, vvarfv, latvarfv, lonvarfv, depthvarfv, path2savefv, grid_path)
         currFile = 'fvcom_forecast_'+str(start_time.year) + "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
     else:
         'using old fvcom files'
         duration = duration - timedelta(days=1)
-        currFile = 'fvcom_forecast' + str(yest.year) + "{0:02d}".format(yest.month) + "{0:02d}".format(yest.day) + '.nc'
-
+        currFile = 'fvcom_forecast_' + str(yest.year) + "{0:02d}".format(yest.month) + "{0:02d}".format(yest.day) + '.nc'
+    print os.path.exists(join(data_path, wind_path, tod_poswrffile)),join(data_path, wind_path, tod_poswrffile), os.path.exists(join(data_path, wpath, tod_wrffile)), join(data_path, wpath, tod_wrffile)
     if os.path.exists(join(data_path, wind_path, tod_poswrffile)):
         windFile = 'WRF_forecast_'+str(start_time.year) + "{0:02d}".format(start_time.month)+ "{0:02d}".format(start_time.day)+'.nc'
 

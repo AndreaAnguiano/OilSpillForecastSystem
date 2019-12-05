@@ -41,7 +41,7 @@ def plotparticlesforecast(data_path, point, filename, t, dts, latbox, lonbox, pr
         plt.xlim([lonmin, lonmax])
         plt.ylim([latmin, latmax])
         ax.set_title(str(tnew)+point, {'fontsize': 15}, 'center')
-        plotScatter = plt.scatter(TheData['longitude'][pid], TheData['latitude'][pid], s=100, color='k', marker='.')
+        plotScatter = plt.scatter(TheData['longitude'][pid], TheData['latitude'][pid], s=20, color='k', marker='.')
         plt.savefig(data_path+'/'+'foreground_'+"{0:05d}".format(i)+'.png', bbox_inches = 'tight', pad_inches = 0.1, quality=95)
         plt.clf()
         plt.close()

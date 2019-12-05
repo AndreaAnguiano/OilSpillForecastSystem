@@ -58,14 +58,7 @@
 					include 'animControls.php';
 				?>
 			</div>        
-			<div class="col-lg-3 col-md-6 col-sm-12  col-xs-12 ">
-				<span class="mycenter">P7</span>
-				<canvas id="p7_canvas" width="100%" ></canvas>
-				<?php 
-					$jsObj = 'obj_p7';//This name MUST be harcoded
-					include 'animControls.php';
-				?>
-			</div>        
+			       
 		</div>
 		<div class="row">
 			<p>Date: <input type="text" id="datepicker"></p>
@@ -74,14 +67,15 @@
     <footer class="footer">
       <div class="d-flex justify-content-end" style="height: 65px;">
 
-		  <p class="mr-auto p-2"><a href='http://olmozavala.com'>Olmo Zavala</a>,
-			  Adolfo V. Magaldi,
-			  Angel Ruiz, 
-			  Carlos Ochoa,
-			  A. Quintanar,
-			  Michel Grutter,
-			  Eugenia González,
-			  <a href="https://github.com/ixchelzg">Ixchel Zazueta</a>, 2019
+		  <p class="mr-auto p-2"><a href='https://github.com/AndreaAnguiano'>Andrea Anguiano</a>, <a href='http://olmozavala.com'>Olmo Zavala</a>,
+			  Ovel Díaz,  
+			  Jorge Zavala, 
+			  Rosario Romero, 
+                          Pavel Oropeza, 
+                          Roberto Pineda, 
+			  Saulo Rivera, 
+			  Ma. Elena Osorio, 
+                          Jaime Meza, 2019
 		  </p>
 			  <img src="img/unam.png" class="nav_logo_min"  />
 			  <img src="img/logo.png" class="nav_logo_min"  />

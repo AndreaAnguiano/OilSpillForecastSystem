@@ -22,7 +22,7 @@ forecast_path = join(root_repo, 'pyGnome/forecast')
 data_path = '/DATA/forecastData/'
 today_path = str(start_time.year) + '-' + "{0:02d}".format(start_time.month) + '-' + "{0:02d}".format(
     start_time.day) + '/'
-output_path = '/DATA/forecastData/test/'
+output_path = '/home/andrea/python/OilSpillForecastSystem/Local_Visualizer/images/'
 curr_path = 'Currents_FVCOM/'
 wind_path = 'Winds/'
 map_path = 'BaseMaps/'

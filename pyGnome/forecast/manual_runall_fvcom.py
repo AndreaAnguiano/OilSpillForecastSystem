@@ -7,12 +7,12 @@ import sys
 import cartopy.crs as ccrs
 
 namePosition = ['P1', 'P2', 'P3', 'P4', 'P5', 'P6']
-coords = [[-86.5, 20], [-86, 19.5], [-85.5, 19],
-          [-85.5, 18.7], [-87, 18.5], [-87.5, 18.2]]
+coords = [[-85.5, 20], [-86, 19.5], [-85.5, 19],
+          [-85.5, 18.7], [-86, 18.5], [-85, 19]]
 latbox = [12, 24]
 lonbox = [-90, -79]
 # spill timming
-now = datetime.today()
+now = datetime(2019,11,22)
 start_time = datetime(now.year, now.month, now.day, 1)  # -timedelta(days=1)
 print start_time
 duration = timedelta(days=3)
@@ -22,7 +22,7 @@ forecast_path = join(root_repo, 'pyGnome/forecast')
 data_path = '/DATA/forecastData/'
 today_path = str(start_time.year) + '-' + "{0:02d}".format(start_time.month) + '-' + "{0:02d}".format(
     start_time.day) + '/'
-output_path = '/DATA/forecastData/test/'
+output_path = '/home/andrea/python/OilSpillForecastSystem/Local_Visualizer/images/'
 curr_path = 'Currents_FVCOM/'
 wind_path = 'Winds/'
 map_path = 'BaseMaps/'

@@ -1,6 +1,0 @@
-{
- "obj_type": "gnome.movers.random_movers.RandomMover", 
- "diffusion_coef": 30000.0, 
- "uncertain_factor": 2.0, 
- "json_": "save"
-}

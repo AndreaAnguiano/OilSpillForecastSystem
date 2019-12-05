@@ -11,7 +11,7 @@ latbox = [18.2, 31]
 lonbox = [-98, -80]
 
 #spill timming
-now = datetime(2019,11,26)
+now = datetime(2019,11,28)
 start_time = datetime(now.year,now.month, now.day,1)#-timedelta(days=1)
 print start_time
 duration = timedelta(days=4)
@@ -30,13 +30,6 @@ from cutcoords import cutCoords
 from hycomforecast import hycomforecast
 from wrfforecast import wrfforecast
 from numb2month import numb2month
-
-
-if not os.path.exists(data_path+'Output/'+today_path):
-    os.mkdir(data_path+'Output/'+today_path)
-    print("Daily directory created ")
-else:
-    print("Daily directory already exists")
 
 #hycom variables for preprocessing data
 prefhy = 'hycom_gomu_901m000_'
