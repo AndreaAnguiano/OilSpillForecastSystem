@@ -15,11 +15,11 @@ start_time = datetime(now.year, now.month, now.day, 1)  # -timedelta(days=1)
 print start_time
 duration = timedelta(days=4)
 # adding paths
-root_repo = '/media/storageBK/Andrea/python/OilSpillForecastSystem/'
+root_repo = '/home/andrea/python/OilSpillForecastSystem/' #'/media/storageBK/Andrea/python/OilSpillForecastSystem/'
 forecast_path = join(root_repo, 'pyGnome/forecast')
-data_path = '/media/storageBK/Andrea/python/forecastData/'
+data_path = '/DATA/forecastData/'#'/media/storageBK/Andrea/python/forecastData/'
 today_path = str(start_time.year)+'-' + "{0:02d}".format(start_time.month)+'-' + "{0:02d}".format(start_time.day) + '/'
-output_path = '/var/www/html/OilSpill_Forecast/images/'
+output_path = '/DATA/forecastData/test/'
 curr_path = 'Currents/'
 wind_path = 'Winds/'
 map_path = 'BaseMaps/'
@@ -56,6 +56,35 @@ path2savew = join(data_path, wind_path)
 wpath = 'wrf/'+"{0:02d}".format(start_time.month)+'_'+numb2month(start_time.month)+'/'
 # Plot settings
 sys.path.append(join(root_repo, 'pyGnome/post_processing'))
+# define map name
+map = 'gulf.bna'
+reFloatHalfLife = -1  # Particles that beach on the shorelines are randomly refloated according to the specified half-life (specified in hours).
+
+# timestep (s)
+timeStep = 3600
+# timestep for outputs
+timestep_outputs = 1
+
+# oil decay (weathering)
+weatherers = True
+weatheringSteps = 1  # how many weathering substeps to run inside a single model time step
+
+# turbulent diffusion
+td = True
+
+# wind scale
+wind_scale = 1
+
+# model uncertain
+uncertain = True
+
+# # Elements
+num_elements = 10000
+save_nc = True
+
+# physical properties of water
+temp_water = 280
+dif_coef = 10000
 
 from plotparticlesforecast import plotparticlesforecast
 proj = ccrs.PlateCarree()
@@ -73,9 +102,11 @@ for indx in range(0, len(namePosition)):
         main(coords[indx], namePosition[indx], latbox, lonbox, start_time, duration,
         root_repo, forecast_path, data_path, daily_output_path, curr_path, wind_path,
         map_path, prefhy, sufhy, depths, uvarhy, vvarhy, latvarhy, lonvarhy, depthvarhy,
-        path2savehy, prefw, sufw, latvarw, lonvarw, uvarw, vvarw, path2savew, wpath)
+        path2savehy, prefw, sufw, latvarw, lonvarw, uvarw, vvarw, path2savew, wpath,
+        map, reFloatHalfLife, timeStep, timestep_outputs, weatherers, weatheringSteps,
+        td, wind_scale, uncertain, num_elements, save_nc, temp_water, dif_coef)
         tic = time.clock()
         plotparticlesforecast(daily_output_path, namePosition[indx], filenameplot,
-        start_time, dt, latbox, lonbox, proj)
+        start_time, dt, latbox, lonbox, proj, uncertain)
         toc = time.clock()
         print toc-tic

@@ -53,7 +53,7 @@ num_elements, save_nc, temp_water, dif_coef):
 
     model = make_modelF(timeStep, start_time, duration, weatheringSteps, map,
     uncertain, data_path, curr_path, wind_path, map_path, reFloatHalfLife,
-    windFile, currFile, tidalFile, num_elements, depths, lat, lon, daily_output_path,
+    windFile, currFile, num_elements, depths, lat, lon, daily_output_path,
     wind_scale, save_nc, timestep_outputs, weatherers, td, dif_coef, temp_water)
 
     model.full_run()

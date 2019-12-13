@@ -11,11 +11,10 @@ from datetime import timedelta
 from gnome.weatherers import Emulsification, Evaporation, NaturalDispersion, ChemicalDispersion
 
 
-def make_modelF(timeStep, start_time, duration, weatheringSteps, map, uncertain, data_path, curr_path, wind_path, map_path, reFloatHalfLife, windFile, currFile, tidalFile, num_elements, depths, lat, lon, output_path, wind_scale, save_nc, timestep_outputs, weatherers, td, dif_coef,temp_water):
+def make_modelF(timeStep, start_time, duration, weatheringSteps, map, uncertain, data_path, curr_path, wind_path, map_path, reFloatHalfLife, windFile, currFile, num_elements, depths, lat, lon, output_path, wind_scale, save_nc, timestep_outputs, weatherers, td, dif_coef,temp_water):
     print 'initializing the model:'
-    model = Model(time_step=timeStep, start_time=start_time, duration=duration)
+    model = Model(time_step=timeStep, start_time=start_time, duration=duration, uncertain=uncertain)
     print 'adding the map:'
-    print os.path.join(data_path, map_path, map)
     mapfile = get_datafile(os.path.join(data_path, map_path, map))
     model.map = MapFromBNA(mapfile, refloat_halflife=reFloatHalfLife)
     print 'adding a renderer'
@@ -32,7 +31,6 @@ def make_modelF(timeStep, start_time, duration, weatheringSteps, map, uncertain,
     model.movers += wind
     print 'adding a current mover:'
     curr_file = get_datafile(os.path.join(data_path, curr_path, currFile))
-    print curr_file
     model.movers += GridCurrentMover(curr_file, num_method='RK4')
     if td:
         random_mover = RandomMover(diffusion_coef=dif_coef)
