@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; WebGNOME  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting Started" href="basics.html" />
+    <link rel="prev" title="WebGNOME User Manual" href="index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> WebGNOME
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#related-projects">Related Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basics.html#the-menu-bar">The Menu Bar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basics.html#switching-between-model-views">Switching between Model Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basics.html#using-setup-view">Using Setup View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basics.html#timeline-graphic-under-development">Timeline Graphic (Under Development)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fate.html">Simulating Oil Fate</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fate.html#oil-fate-wizard">Oil Fate Wizard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fate.html#adios-oil-library">ADIOS Oil Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fate.html#oil-fate-exercises">Oil Fate Exercises</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fate_exercises/full_run_through.html">A Complete Annotated Example</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fate_exercises/full_run_through.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fate_exercises/full_run_through.html#model-input">Model Input</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fate_exercises/dispersant_exercise.html">Chemical Dispersant Exercise</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fate_exercises/dispersant_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fate_exercises/dispersant_exercise.html#model-input">Model Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fate_exercises/dispersant_exercise.html#discussion">Discussion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fate_exercises/continuous_exercise.html">Continuous Release Exercise</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fate_exercises/continuous_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fate_exercises/continuous_exercise.html#model-input">Model Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fate_exercises/continuous_exercise.html#id3">Discussion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fate_exercises/ics_209_exercise.html">ICS 209 Exercise</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fate_exercises/ics_209_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fate_exercises/ics_209_exercise.html#model-input">Model Input</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transport.html">Simulating Transport</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="transport.html#setting-up-the-model">Setting up the Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transport.html#using-location-files">Using Location Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transport.html#oil-transport-exercises">Oil Transport Exercises</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transport_exercises/location_file_exercise.html">Example Scenario using Location File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="transport_exercises/location_file_exercise.html#columbia-river-estuary-example-problem">Columbia River Estuary Example Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transport_exercises/location_file_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transport_exercises/location_file_exercise.html#setting-up-the-intial-scenario">Setting up the Intial Scenario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transport_exercises/location_file_exercise.html#return-to-setup-view-to-add-winds">Return to Setup View to add Winds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transport_exercises/location_file_exercise.html#change-the-spill-start-time">Change the Spill Start Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transport_exercises/location_file_exercise.html#stronger-river-flow">Stronger River Flow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transport_exercises/location_file_exercise.html#include-uncertainty">Include Uncertainty</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="transport_exercises/manual_exercise.html">Example Scenario with Manual Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="transport_exercises/manual_exercise.html#sample-files">Sample Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transport_exercises/manual_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transport_exercises/manual_exercise.html#get-started">Get Started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transport_exercises/manual_exercise.html#load-a-map">Load a Map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transport_exercises/manual_exercise.html#add-wind-data-and-current-data">Add Wind Data and Current Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transport_exercises/manual_exercise.html#add-horizontal-mixing-diffusion">Add Horizontal Mixing (Diffusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transport_exercises/manual_exercise.html#add-the-spill">Add the Spill</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transport_exercises/manual_exercise.html#run-the-model">Run the Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transport_exercises/manual_exercise.html#explore">Explore</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="response.html">Simulating Response Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="location_files.html">Location Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="location_files.html#location-file-wizard">Location File Wizard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="location_files.html#available-location-files">Available Location Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="location_files.html#alaska-region">Alaska Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="location_files.html#atlantic-region">Atlantic Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="location_files.html#gulf-of-mexico">Gulf of Mexico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="location_files.html#pacific-region">Pacific Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="location_files.html#international">International</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="goods.html">GNOME Data Server (GOODS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uncertainty.html">Uncertainty in WebGNOME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">WebGNOME</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>WebGNOME is a publicly available oil spill trajectory and fate model that simulates oil movement
+and weathering due to winds and currents. GNOME was developed by the NOAA Office of Response
+and Restoration (OR&amp;R) Emergency Response Division for use in oil spill response.</p>
+<p>You can use WebGNOME to:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Predict how winds, currents, and other processes might move and spread oil
+spilled on the water.</li>
+<li>Learn how predicted oil trajectories are affected by inexactness (“uncertainty”) in
+current and wind observations and forecasts.</li>
+<li>See how spilled oil is predicted to change chemically and physically (“weather”)
+during the time that it remains on the water surface.</li>
+</ul>
+</div></blockquote>
+<p>To use WebGNOME, you describe a spill scenario by entering information into the program and
+potentially uploading files with ocean currents, wind forecasts, and shoreline information.
+For examining the fate of spilled oil, a specific oil can be selected from a database
+of more than a thousand different crude oils and refined products.</p>
+<p>WebGNOME then creates and displays an oil spill animation showing the predicted trajectory
+of the oil spilled in your scenario. You can also view graphs containing information on
+the “oil budget” or partitioning of spilled oil between the water surface, water column, and
+atmosphere.</p>
+<p>To make setting up and running WebGNOME easier, users can choose to start with a webGNOME
+Location File. These exist for many Unisted States waterways and contain pre-packaged tide
+and current data.</p>
+<p>Alternatively, users can choose to utilize shoreline data and output from numerous publically
+available ocean and meteorological models through the GOODS website.</p>
+<div class="section" id="related-projects">
+<h2>Related Projects<a class="headerlink" href="#related-projects" title="Permalink to this headline">¶</a></h2>
+<p>pyGNOME: <a class="reference external" href="https://github.com/NOAA-ORR-ERD/PyGnome">https://github.com/NOAA-ORR-ERD/PyGnome</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="basics.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="WebGNOME User Manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, NOAA OR&amp;R
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

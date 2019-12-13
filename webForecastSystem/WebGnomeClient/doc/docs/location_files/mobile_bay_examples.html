@@ -1,0 +1,528 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mobile Example Problems &mdash; WebGNOME  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> WebGNOME
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#related-projects">Related Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basics.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basics.html#the-menu-bar">The Menu Bar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics.html#switching-between-model-views">Switching between Model Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics.html#using-setup-view">Using Setup View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics.html#timeline-graphic-under-development">Timeline Graphic (Under Development)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../fate.html">Simulating Oil Fate</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fate.html#oil-fate-wizard">Oil Fate Wizard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fate.html#adios-oil-library">ADIOS Oil Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fate.html#oil-fate-exercises">Oil Fate Exercises</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../fate_exercises/full_run_through.html">A Complete Annotated Example</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/full_run_through.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/full_run_through.html#model-input">Model Input</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../fate_exercises/dispersant_exercise.html">Chemical Dispersant Exercise</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/dispersant_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/dispersant_exercise.html#model-input">Model Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/dispersant_exercise.html#discussion">Discussion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../fate_exercises/continuous_exercise.html">Continuous Release Exercise</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/continuous_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/continuous_exercise.html#model-input">Model Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/continuous_exercise.html#id3">Discussion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../fate_exercises/ics_209_exercise.html">ICS 209 Exercise</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/ics_209_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/ics_209_exercise.html#model-input">Model Input</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../transport.html">Simulating Transport</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../transport.html#setting-up-the-model">Setting up the Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transport.html#using-location-files">Using Location Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transport.html#oil-transport-exercises">Oil Transport Exercises</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transport_exercises/location_file_exercise.html">Example Scenario using Location File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#columbia-river-estuary-example-problem">Columbia River Estuary Example Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#setting-up-the-intial-scenario">Setting up the Intial Scenario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#return-to-setup-view-to-add-winds">Return to Setup View to add Winds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#change-the-spill-start-time">Change the Spill Start Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#stronger-river-flow">Stronger River Flow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#include-uncertainty">Include Uncertainty</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../transport_exercises/manual_exercise.html">Example Scenario with Manual Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#sample-files">Sample Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#get-started">Get Started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#load-a-map">Load a Map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#add-wind-data-and-current-data">Add Wind Data and Current Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#add-horizontal-mixing-diffusion">Add Horizontal Mixing (Diffusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#add-the-spill">Add the Spill</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#run-the-model">Run the Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#explore">Explore</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../response.html">Simulating Response Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../location_files.html">Location Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../location_files.html#location-file-wizard">Location File Wizard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../location_files.html#available-location-files">Available Location Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#alaska-region">Alaska Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#atlantic-region">Atlantic Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#gulf-of-mexico">Gulf of Mexico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#pacific-region">Pacific Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#international">International</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../goods.html">GNOME Data Server (GOODS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uncertainty.html">Uncertainty in WebGNOME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WebGNOME</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Mobile Example Problems</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/location_files/mobile_bay_examples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mobile-example-problems">
+<span id="mobile-bay-examples"></span><h1>Mobile Example Problems<a class="headerlink" href="#mobile-example-problems" title="Permalink to this headline">¶</a></h1>
+<p>Try out these examples to learn the basics of modeling oil spills in
+Mobile Bay. Explore how the changing tides affect the trajectories of
+oil slicks, how wind can move an oil slick in a different direction from
+the currents, and how model and observation limitations can be overcome
+by considering both the “Best Guess” and the “Minimum Regret”
+(Uncertainty) solutions. This knowledge will help you in designing your
+own WebGNOME model runs.</p>
+<div class="section" id="example-1">
+<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<p>Tides are an important part of the circulation in Mobile Bay. To
+test this, you will start the same spill at two points in the tidal
+cycle: the beginning of a flood tide (2340 on July 1, 2000) and the
+beginning of an ebb tide (1215 on July 2, 2000). Place a spill at 30°
+22’ N, 88° 1’ W (about halfway between the Gulf entrance to Mobile Bay
+and the Theodore Ship Channel) and observe the effects of tides on the
+spill trajectory and beach impacts.</p>
+<p>Begin by selecting the Mobile Bay Location File which will launch
+the Wizard to guide you through setting up the scenario. Use the information
+in the following table as you advance through the Wizard.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="68%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Start time:</td>
+<td>As above for flood or ebb tide.</td>
+</tr>
+<tr class="row-even"><td>Model duration:</td>
+<td>1 day.</td>
+</tr>
+<tr class="row-odd"><td>Uncertainty:</td>
+<td>Not included.</td>
+</tr>
+<tr class="row-even"><td>River flow:</td>
+<td>Low (30 kcfs).</td>
+</tr>
+<tr class="row-odd"><td>Wind:</td>
+<td>No wind (constant at 0 knots).</td>
+</tr>
+<tr class="row-even"><td>Spill type:</td>
+<td>Instantaneous.</td>
+</tr>
+<tr class="row-odd"><td>Time of Release:</td>
+<td>Same as model start time.</td>
+</tr>
+<tr class="row-even"><td>Amount released:</td>
+<td>1000 barrels (bbls)</td>
+</tr>
+<tr class="row-odd"><td>Pollutant type:</td>
+<td>Non-weathering.</td>
+</tr>
+<tr class="row-even"><td>Position:</td>
+<td>30°22’ N, 88° 1’ W</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tips:</strong></p>
+<p>1. If you only want to change one spill parameter (like the start time
+of the spill in this example, there is no need to reload the Location File
+and step through the Wizard. Instead, use the buttons on the Menu Bar to
+switch from Map View to Setup View. In Setup View are various panels which
+allow you to edit the model setup. In the <strong>Spill</strong> panel, click on the edit
+(pencil) icon of the spill you created to edit the time of release.</p>
+<p>When you change the start time of the spill, you will likely want to
+change both the spill start time and the model start time. If you change
+the spill start time first, WebGNOME will automatically
+prompt you to change the model start time to match the spill start time.
+So it is a good ideal to always change the spill start time first.</p>
+<p>2. To more easily visualize the difference between the spill impacts,
+consider taking a screenshot of the map at the end of the first run.</p>
+<div class="section" id="answer">
+<h3>Answer:<a class="headerlink" href="#answer" title="Permalink to this headline">¶</a></h3>
+<p>When the spill starts just before the flood tide, most
+of the beached oil is on the fill island east of Deer River Point
+and some of the beached oil is on the western end of Theodore Ship
+Channel. When the spill starts just before the ebb tide, most of the
+spill is transported out of Mobile Bay towards the Gulf, with some
+oil beaching on Dauphin and Pelican Islands.</p>
+</div>
+</div>
+<div class="section" id="example-2">
+<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<p>The circulation in Mobile Bay is significantly affected by the
+flow rate of the Mobile River. In this example, you will look at a spill
+closer to Mobile in the springtime and examine the effects of low and
+high river runoff on the transport of the spill. Set the spill at 30°
+37’ N, 88° 1’ W and set the run time to 0530 on March 14, 2000 (a flood
+tide is just starting at this time). Run the spill two times in GNOME,
+the first time with a low (30 kcfs) river flow and the second time with
+a high (300 kcfs) river flow. Change the model run duration to 3 days
+for this example problem.</p>
+<p>What are the differences in beach impacts between these two
+scenarios?</p>
+<p><strong>Tips:</strong></p>
+<p>1. Once again, use the <strong>Spill</strong> panel in Setup View to change spill
+settings.</p>
+<ol class="arabic simple" start="2">
+<li>The run duration can be edited in the Model Settings panel.</li>
+</ol>
+<p>3. The <a class="reference internal" href="mobile_bay_tech.html#mobile-bay-tech"><span class="std std-ref">Mobile Bay User Guide</span></a> explains how the currents
+due to the river are scaled based on the river flows into the Bay. Since this
+scaling is linear, an increase in the river flow from 30 kcfs to 300 kcfs implies
+the scaling should be increased by a factor of 10. If you click the edit icon (pencil)
+next to the River Currents in the currents panel, you’ll be able to edit the Scale
+Value. If you started with the low river flow case, you’ll be increasing this value
+from ~0.197 to 1.97.</p>
+<div class="section" id="id1">
+<h3>Answer:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Changing the river flow rate changes the oil spill
+trajectory, leading to different beach impact areas. When the river
+flow rate is low, the spill moves further up into the bay on the
+flood tides, impacting the marsh areas surrounding Mobile, before
+slowly starting to move toward the bay’s entrances. When the river
+rate is high, the spill moves toward the entrances of Mobile Bay at
+a <em>much</em> faster rate, allowing less time for beach impacts enroute.</p>
+</div>
+</div>
+<div class="section" id="example-3">
+<h2>Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h2>
+<p>Wind both moves the oil along the water’s surface and drives
+currents. Rerun the previous spill with the high river flow rate and add
+a 15-knot wind from the northwest. Run this spill scenario for 2 days.</p>
+<p>How does the oil’s trajectory change from the previous example?</p>
+<p><strong>Tip:</strong></p>
+<p>You created a spatially constant wind at 0 knots in the initial model setup. It
+shows up in a list (currently with just one entry) at the bottom of
+the Point Wind panel. You can choose to edit this wind (by clicking the pencil
+icon in the list) or add a new constant wind by clicking the + icon at the
+top right of the panel.</p>
+<div class="section" id="id2">
+<h3>Answer:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>The wind dramatically changes the oil’s trajectory!
+Instead of quickly moving seaward, much of the oil beaches along the
+eastern shoreline of Mobile Bay, from Seacliff to Palmetto Beach.</p>
+</div>
+</div>
+<div class="section" id="example-4">
+<h2>Example 4<a class="headerlink" href="#example-4" title="Permalink to this headline">¶</a></h2>
+<p>Forecasts of environmental parameters are inherently uncertain. For
+example, wind and weather forecasts can be “off” in the speed,
+direction, or timing of winds. GNOME supports a “Minimum Regret”
+solution in addition to the “Best Guess” solution that you have been
+running. The “Minimum Regret” solution takes into account our
+uncertainty in wind, horizontal mixing, and currents. Now you will
+add the “Minimum Regret” solution to see where else the spill might
+go.</p>
+<p>Rerun the previous spill with a high river flow rate, but first make
+these changes: (1) change the wind to 15 knots from the east; (2) change
+the spill start time to 0100 on March 15, 2000; (3) reset the model
+duration to 1 day; and (4) include the “Minimum Regret” solution.</p>
+<p>“Zoom in” to your spill area and examine the difference
+between the “Best Guess” (black) and “Minimum Regret” (red)
+trajectories. Why do you think this type of information would be
+useful?**</p>
+<p><strong>Tip:</strong></p>
+<p>To include the Minimum Regret (Uncertainty) solution,
+click the box labeled “Include the Minimum Regret (Uncertainty)
+solution” in the Model Settings panel in Setup View.</p>
+<div class="section" id="id3">
+<h3>Answer:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>The “Minimum Regret” solution shows where else the spill
+could go if the currents, winds or other model inputs were a little
+bit different. Although our “Best Guess” solution does not show any
+oil impacts on the fill island, the “Minimum Regret” solution shows
+that there could be oil contact. Responders use this information to
+make decisions about how they will allocate response resources.
+Sometimes a highly valued environmental resource (e.g. an endangered
+species) may be important enough to protect, even if it has a low
+probability of being oiled.</p>
+</div>
+</div>
+<div class="section" id="example-5">
+<h2>Example 5.<a class="headerlink" href="#example-5" title="Permalink to this headline">¶</a></h2>
+<p>Different types of pollutants weather differently. In the
+previous examples, you were using a “non-weathering” pollutant that
+did not change with time. Now you are going to run a
+“What if?” scenario that compares the effects of different types of
+pollutants.</p>
+<p>A barge carrying 10,000 barrels of product grounds at 0530, March 14,
+2000 at the entrance to Mobile Bay, near Mobile Point (30° 13.49’ N, 88°
+2.01’ W). The Mobile River is currently running low; winds are from the
+northwest at 8 knots.</p>
+<p>Run the above scenario for a barge containing medium crude and a barge
+containing gasoline. At the end of your 24-hour prediction, write down
+the mass balance for each scenario in the table below.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="30%" />
+<col width="23%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>&#160;</td>
+<td><strong>Medium Crude
+(bbls)</strong></td>
+<td><strong>Gasoline
+(bbls)</strong></td>
+</tr>
+<tr class="row-even"><td>Released</td>
+<td>10,000</td>
+<td>10,000</td>
+</tr>
+<tr class="row-odd"><td>Floating</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Beached</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Evaporated</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Dispersed</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Off map</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tips:</strong></p>
+<p>1. You can make all the changes to the model setup in Setup View
+or start over with the Wizard by choosing “Select a Location File” from
+the <strong>New</strong> pull down menu on the menubar.</p>
+<p>2. Use the Select/Change Oil button to to open the ADIOS oil library.
+From this interface you can select an oil that corresponds to a medium
+crude or a gasoline. It doesn’t matter which exact oil you select, as long
+as it falls into one of these broad categories.</p>
+<ol class="arabic simple" start="3">
+<li>To view the mass balance for each scenario switch to the Fate View.</li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h2>Answer:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Heavier oils remain in the environment longer than
+lighter, refined products. You can see that the beach impacts from
+the medium crude spill are more extensive than for the gasoline
+spill.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, NOAA OR&amp;R
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Chemical Dispersant Exercise &mdash; WebGNOME  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Continuous Release Exercise" href="continuous_exercise.html" />
+    <link rel="prev" title="A Complete Annotated Example" href="full_run_through.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> WebGNOME
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#related-projects">Related Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basics.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basics.html#the-menu-bar">The Menu Bar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics.html#switching-between-model-views">Switching between Model Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics.html#using-setup-view">Using Setup View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics.html#timeline-graphic-under-development">Timeline Graphic (Under Development)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../fate.html">Simulating Oil Fate</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../fate.html#oil-fate-wizard">Oil Fate Wizard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fate.html#adios-oil-library">ADIOS Oil Library</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../fate.html#oil-fate-exercises">Oil Fate Exercises</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="full_run_through.html">A Complete Annotated Example</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="full_run_through.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="full_run_through.html#model-input">Model Input</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Chemical Dispersant Exercise</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#model-input">Model Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#discussion">Discussion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="continuous_exercise.html">Continuous Release Exercise</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="continuous_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="continuous_exercise.html#model-input">Model Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="continuous_exercise.html#id3">Discussion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ics_209_exercise.html">ICS 209 Exercise</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ics_209_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ics_209_exercise.html#model-input">Model Input</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../transport.html">Simulating Transport</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../transport.html#setting-up-the-model">Setting up the Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transport.html#using-location-files">Using Location Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transport.html#oil-transport-exercises">Oil Transport Exercises</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transport_exercises/location_file_exercise.html">Example Scenario using Location File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#columbia-river-estuary-example-problem">Columbia River Estuary Example Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#setting-up-the-intial-scenario">Setting up the Intial Scenario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#return-to-setup-view-to-add-winds">Return to Setup View to add Winds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#change-the-spill-start-time">Change the Spill Start Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#stronger-river-flow">Stronger River Flow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#include-uncertainty">Include Uncertainty</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../transport_exercises/manual_exercise.html">Example Scenario with Manual Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#sample-files">Sample Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#get-started">Get Started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#load-a-map">Load a Map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#add-wind-data-and-current-data">Add Wind Data and Current Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#add-horizontal-mixing-diffusion">Add Horizontal Mixing (Diffusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#add-the-spill">Add the Spill</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#run-the-model">Run the Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#explore">Explore</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../response.html">Simulating Response Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../location_files.html">Location Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../location_files.html#location-file-wizard">Location File Wizard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../location_files.html#available-location-files">Available Location Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#alaska-region">Alaska Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#atlantic-region">Atlantic Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#gulf-of-mexico">Gulf of Mexico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#pacific-region">Pacific Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#international">International</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../goods.html">GNOME Data Server (GOODS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uncertainty.html">Uncertainty in WebGNOME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WebGNOME</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../fate.html">Simulating Oil Fate</a> &raquo;</li>
+        
+      <li>Chemical Dispersant Exercise</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/fate_exercises/dispersant_exercise.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="chemical-dispersant-exercise">
+<h1>Chemical Dispersant Exercise<a class="headerlink" href="#chemical-dispersant-exercise" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../_images/dispersant_pict.gif"><img alt="image0" src="../_images/dispersant_pict.gif" style="width: 149px; height: 104px;" /></a></td>
+<td><p class="first last rubric">Fate Exercises:
+Chemical Dispersant</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="section" id="incident">
+<h2>Incident<a class="headerlink" href="#incident" title="Permalink to this headline">¶</a></h2>
+<p>At 0700 on April 4th, 2017, a collision occurred between a shrimp
+boat and a freighter about 30 miles southeast of Galveston, Texas at
+28° 55.9’N, 94° 21.5’W. Initial reports indicate 315 bbls of IFO 180
+were lost. The National Weather Service marine forecast indicates
+that the winds will be from the southwest at 10-20 knots for the
+next 36 hours.</p>
+<p>Approval has been given for the application of dispersants. Corexit
+9500 has been loaded onto a DC-4, and the aircraft is on standby in
+Houma, Louisiana. Unfortunately, the aircraft has a mechanical
+problem with the dispersant equipment. The contractor indicates that
+they will be able to disperse the next day.</p>
+<p><strong>Commander Jones would like to know if the oil will emulsify to the extent that dispersants will not work.</strong></p>
+</div>
+<div class="section" id="model-input">
+<h2>Model Input<a class="headerlink" href="#model-input" title="Permalink to this headline">¶</a></h2>
+<p>Begin on the home page by clicking “Fate Wizard” under “weathering only”. Or, if you have a previous setup of the model, click the “New” menu and select “Oil Fate Wizard”</p>
+<div class="section" id="scenario-settings">
+<h3>Scenario Settings<a class="headerlink" href="#scenario-settings" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Click Scenario Settings</li>
+<li>Give the incident a name</li>
+<li>Set the start time: 0700 on April 4th, 2016</li>
+<li>Set the model duration to 2 days</li>
+<li>Click Save</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="oil">
+<h3>Oil:<a class="headerlink" href="#oil" title="Permalink to this headline">¶</a></h3>
+<p>IFO 180.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Click Oil</li>
+<li>There are multiple ways to find an IFO-180 in the database. Here are a few options:<ul>
+<li>type “IFO” in the search box</li>
+<li>type “180” in the search box</li>
+<li>select Refined-Intermediate Fuel Oil in the “Category” selection</li>
+</ul>
+</li>
+<li>You probably want to select <code class="docutils literal notranslate"><span class="pre">*GENERIC-INTERMEDIATE</span> <span class="pre">FUEL</span> <span class="pre">OIL</span> <span class="pre">180</span></code> unless you know it’s a more specific oil.</li>
+<li>Click “More Info” if you want to see the details of the oil.</li>
+<li>Click “Select” to select the oil.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="spill">
+<h3>Spill:<a class="headerlink" href="#spill" title="Permalink to this headline">¶</a></h3>
+<p>Instantaneous release of 315 bbls.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Click “Spill” to set the spill properties</li>
+<li>Select “Instantaneous Release”</li>
+<li>Set Amount Released to 315</li>
+<li>Make sure the units are set to “bbl”</li>
+<li>Leave the Confidence in Spill Amount at “Certain”</li>
+<li>Click Save</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="water">
+<h3>Water:<a class="headerlink" href="#water" title="Permalink to this headline">¶</a></h3>
+<p>Water temperature has significant effects on evaporation rates.</p>
+<p>Ideally, you would find a field data for water temp in the region, perhaps from the NDBC web site (for the US):</p>
+<p><code class="docutils literal notranslate"><span class="pre">http://www.ndbc.noaa.gov/</span></code></p>
+<p>As of May 9, 2017, the water temp south of Mobile is 75.6 F (station 42012).</p>
+<p>Or use an approximation for the season</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Click Water</li>
+<li>Enter 75.6 and choose F from the popup menu.</li>
+<li>Select 32 (avg. oceanic) from the Salinity popup menu</li>
+<li>Select 5 mg/l (ocean) from the Water Sediment Load popup menu</li>
+<li>Leave Wave Height at “Compute from Wind (Unlimited Fetch)”</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="wind">
+<h3>Wind:<a class="headerlink" href="#wind" title="Permalink to this headline">¶</a></h3>
+<p>Winds will be from the southwest at 10-20 knots for the
+next 36 hours</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Click Wind</li>
+<li>Select the Constant Wind Tab</li>
+<li>Set the direction to “SW”</li>
+<li>Set the speed to 15 knots</li>
+<li>Adjust the “Speed Uncertainty” slider until you get “9.3 - 19.6”</li>
+<li>Click Save</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="run-the-model">
+<h3>Run the model<a class="headerlink" href="#run-the-model" title="Permalink to this headline">¶</a></h3>
+<p>Click “Solve”</p>
+</div>
+</div>
+<div class="section" id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
+<p><strong>Commander Jones would like to know if the oil will emulsify to the
+extent that dispersants will not work.</strong></p>
+<p>IFO-180’s do not normally emulsify, however, the oil may weather and
+become very viscous so that dispersant may be less effective. You
+can address this issue by using the Oil Viscosity Graph.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Click the Weathering tab to see the oil properties graphs.</li>
+<li>Click the Viscosity tab to see how the viscosity of the oil is changing with time.</li>
+<li>Notice that after about 12 hours, dispersability is restricted. The effectiveness of
+dispersants will be questionable. Ask your SSC for further guidance.</li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="continuous_exercise.html" class="btn btn-neutral float-right" title="Continuous Release Exercise" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="full_run_through.html" class="btn btn-neutral" title="A Complete Annotated Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, NOAA OR&amp;R
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

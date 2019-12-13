@@ -1,0 +1,559 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>A Complete Annotated Example &mdash; WebGNOME  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chemical Dispersant Exercise" href="dispersant_exercise.html" />
+    <link rel="prev" title="Simulating Oil Fate" href="../fate.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> WebGNOME
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#related-projects">Related Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basics.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basics.html#the-menu-bar">The Menu Bar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics.html#switching-between-model-views">Switching between Model Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics.html#using-setup-view">Using Setup View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics.html#timeline-graphic-under-development">Timeline Graphic (Under Development)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../fate.html">Simulating Oil Fate</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../fate.html#oil-fate-wizard">Oil Fate Wizard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fate.html#adios-oil-library">ADIOS Oil Library</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../fate.html#oil-fate-exercises">Oil Fate Exercises</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">A Complete Annotated Example</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#model-input">Model Input</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dispersant_exercise.html">Chemical Dispersant Exercise</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dispersant_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dispersant_exercise.html#model-input">Model Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dispersant_exercise.html#discussion">Discussion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="continuous_exercise.html">Continuous Release Exercise</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="continuous_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="continuous_exercise.html#model-input">Model Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="continuous_exercise.html#id3">Discussion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ics_209_exercise.html">ICS 209 Exercise</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ics_209_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ics_209_exercise.html#model-input">Model Input</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../transport.html">Simulating Transport</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../transport.html#setting-up-the-model">Setting up the Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transport.html#using-location-files">Using Location Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transport.html#oil-transport-exercises">Oil Transport Exercises</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transport_exercises/location_file_exercise.html">Example Scenario using Location File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#columbia-river-estuary-example-problem">Columbia River Estuary Example Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#setting-up-the-intial-scenario">Setting up the Intial Scenario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#return-to-setup-view-to-add-winds">Return to Setup View to add Winds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#change-the-spill-start-time">Change the Spill Start Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#stronger-river-flow">Stronger River Flow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#include-uncertainty">Include Uncertainty</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../transport_exercises/manual_exercise.html">Example Scenario with Manual Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#sample-files">Sample Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#get-started">Get Started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#load-a-map">Load a Map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#add-wind-data-and-current-data">Add Wind Data and Current Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#add-horizontal-mixing-diffusion">Add Horizontal Mixing (Diffusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#add-the-spill">Add the Spill</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#run-the-model">Run the Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#explore">Explore</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../response.html">Simulating Response Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../location_files.html">Location Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../location_files.html#location-file-wizard">Location File Wizard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../location_files.html#available-location-files">Available Location Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#alaska-region">Alaska Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#atlantic-region">Atlantic Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#gulf-of-mexico">Gulf of Mexico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#pacific-region">Pacific Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#international">International</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../goods.html">GNOME Data Server (GOODS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uncertainty.html">Uncertainty in WebGNOME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WebGNOME</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../fate.html">Simulating Oil Fate</a> &raquo;</li>
+        
+      <li>A Complete Annotated Example</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/fate_exercises/full_run_through.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="a-complete-annotated-example">
+<h1>A Complete Annotated Example<a class="headerlink" href="#a-complete-annotated-example" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="incident">
+<h2>Incident<a class="headerlink" href="#incident" title="Permalink to this headline">¶</a></h2>
+<p>You need something to model in order to try it out :-)</p>
+<p>Using a simple example to start:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">A leak developed in an offshore platform off the coast of Louisiana.</p>
+</li>
+<li><p class="first">The operators estimate that they lost 10000 gal. of a medium crude oil over a five hour period beginning at 0500 this morning.</p>
+</li>
+<li><p class="first">The weather forecast for the next few hours is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Marine</span> <span class="n">Zone</span> <span class="n">Forecast</span><span class="p">:</span>
+
+<span class="n">Synopsis</span><span class="p">:</span> <span class="n">HIGH</span> <span class="n">PRESSURE</span> <span class="n">WILL</span> <span class="n">BEGIN</span> <span class="n">TO</span> <span class="n">MOVE</span> <span class="n">EAST</span> <span class="n">THURSDAY</span><span class="o">.</span> <span class="n">A</span> <span class="n">COLD</span> <span class="n">FRONT</span> <span class="n">WILL</span> <span class="n">PUSH</span>
+<span class="n">THROUGH</span> <span class="n">THE</span> <span class="n">COASTAL</span> <span class="n">WATERS</span> <span class="n">SATURDAY</span> <span class="n">MORNING</span> <span class="n">ALLOWING</span> <span class="n">HIGH</span> <span class="n">PRESSURE</span> <span class="n">TO</span> <span class="n">SETTLE</span>
+<span class="n">OVER</span> <span class="n">THE</span> <span class="n">NORTHERN</span> <span class="n">GULF</span> <span class="n">AGAIN</span> <span class="n">THROUGH</span> <span class="n">THE</span> <span class="n">FIRST</span> <span class="n">PART</span> <span class="n">OF</span> <span class="n">NEXT</span> <span class="n">WEEK</span><span class="o">.</span>
+
+<span class="n">Tonight</span><span class="p">:</span> <span class="n">Southeast</span> <span class="n">winds</span> <span class="mi">5</span> <span class="n">to</span> <span class="mi">10</span> <span class="n">knots</span><span class="o">.</span> <span class="n">Seas</span> <span class="mi">1</span> <span class="n">foot</span> <span class="ow">or</span> <span class="n">less</span><span class="o">.</span>
+
+<span class="n">Wednesday</span><span class="p">:</span> <span class="n">Southeast</span> <span class="n">winds</span> <span class="mi">5</span> <span class="n">to</span> <span class="mi">10</span> <span class="n">knots</span><span class="o">.</span> <span class="n">Seas</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">2</span> <span class="n">feet</span><span class="o">.</span>
+
+<span class="n">Wednesday</span><span class="p">:</span>  <span class="n">NightSouth</span> <span class="n">winds</span> <span class="mi">5</span> <span class="n">to</span> <span class="mi">10</span> <span class="n">knots</span><span class="o">.</span> <span class="n">Seas</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">2</span> <span class="n">feet</span><span class="o">.</span>
+
+<span class="n">Thursday</span><span class="p">:</span> <span class="n">South</span> <span class="n">winds</span> <span class="mi">5</span> <span class="n">to</span> <span class="mi">10</span> <span class="n">knots</span><span class="o">.</span> <span class="n">Seas</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">2</span> <span class="n">feet</span><span class="o">.</span>
+
+<span class="n">Thursday</span><span class="p">:</span> <span class="n">NightSouth</span> <span class="n">winds</span> <span class="mi">10</span> <span class="n">to</span> <span class="mi">15</span> <span class="n">knots</span><span class="o">.</span> <span class="n">Seas</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">3</span> <span class="n">feet</span><span class="o">.</span>
+
+<span class="n">Friday</span><span class="p">:</span> <span class="n">Southwest</span> <span class="n">winds</span> <span class="mi">10</span> <span class="n">to</span> <span class="mi">15</span> <span class="n">knots</span><span class="o">.</span> <span class="n">Seas</span> <span class="mi">2</span> <span class="n">to</span> <span class="mi">4</span> <span class="n">feet</span><span class="o">.</span>
+        <span class="n">Slight</span> <span class="n">chance</span> <span class="n">of</span> <span class="n">showers</span> <span class="ow">and</span> <span class="n">thunderstorms</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>Water temperature is a key control on evaporation rates – you can find the actual ocean temperature from many in-situ instruments, such as those found on the <a class="reference external" href="http://www.ndbc.noaa.gov/">NOAA National Data Buoy Center web site</a>.</li>
+</ul>
+<p>For example, at the time of this writing, <a class="reference external" href="http://www.ndbc.noaa.gov/station_page.php?station=FRWL1">Station FRWL1</a> is indicating a water temperature of 77.4 °F.</p>
+<p>If there is no in-situ data available, you can use climatology to get close.</p>
+</div>
+<div class="section" id="model-input">
+<h2>Model Input<a class="headerlink" href="#model-input" title="Permalink to this headline">¶</a></h2>
+<p>Begin on the home page by clicking “Fate Wizard” under “Weathering Only”. Or, if you have a previous setup of the model, click the “New” menu and select “Oil Fate Wizard”</p>
+<div class="section" id="scenario-settings">
+<h3>Scenario Settings<a class="headerlink" href="#scenario-settings" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Click Scenario Settings</li>
+<li>Give the incident a name – anything you like</li>
+<li>Set the start time: If you are going to use data from a specific time, this is important. Otherwise, you can use any time to start – it defaults to today. Note that WebGNOME is not time-zone aware – all input needs to be in the same timezone.</li>
+<li>Set the model duration to 3 days – usually there is no need to run the model longer than 5 days or so.</li>
+<li>Click Save</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="selecting-an-oil">
+<span id="id1"></span><h3>Selecting an Oil:<a class="headerlink" href="#selecting-an-oil" title="Permalink to this headline">¶</a></h3>
+<p>The ADIOS Oil Library provides a database of many oils with extensive properties required to run an oil weathering model. You can use the Web Interface to search this database to find an appropriate oil for the simulation.</p>
+<p>“Medium Crude” in this case.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Click Oil – This will bring up the ADIOS Oil Library interface (it may take a moment to load the first time)</li>
+</ul>
+</div></blockquote>
+<p>There are multiple ways to find an appropriate oil in the database.</p>
+<p>The list view presents the records that meet the current selection criteria – this is the full set initially. This list includes a few of the records’ fields:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Name:</strong> the name of the oil</li>
+<li><strong>Location:</strong> the region the oil came from</li>
+<li><strong>API:</strong> The oil’s API Gravity (density)</li>
+<li><strong>Quality Score:</strong> an estimate of the completeness of the record,
+records with higher quality scores have more data, and will
+result in more precise forecasts in the model</li>
+</ul>
+</div></blockquote>
+<p>The list is sorted by default alphabetically by name, but if you click on the column headers, you can see it sorted by that field.</p>
+<div class="section" id="generics">
+<h4>Generics<a class="headerlink" href="#generics" title="Permalink to this headline">¶</a></h4>
+<p>The database includes a number of “generic” oils – these are oils that represent a particular oil type, but are not from a particular field (for crudes) or a particular refinery. If all you know is the product spilled is, e.g. a “medium crude”, or “diesel fuel”, then choosing a generic will result in behavior typical of that type.</p>
+<p>The Generic oils all have a “*GENERIC” at the start of their name so they will sort to the top in the alphabetical listing.</p>
+</div>
+<div class="section" id="the-search-box">
+<h4>The Search Box<a class="headerlink" href="#the-search-box" title="Permalink to this headline">¶</a></h4>
+<p>If you type any text in the search box, the list will be reduced to those records that have the text in any part of the name or location or oil category. So typing in “IFO” will result in finding oils from Cal**IFO**rnia, as well as any oil with “IFO” in the name, and all oils in the “Intermediate Fuel Oil” Category.</p>
+</div>
+<div class="section" id="categories">
+<h4>Categories<a class="headerlink" href="#categories" title="Permalink to this headline">¶</a></h4>
+<p>The oils in the database are all sorted into various categories of oils: crude or refined products, etc. If a category is selected, only oils that fit that category will be displayed. Some of the categories are broad an overlapping, for instance, in “Refined - Light Product”, you will find both Gasoline and Kerosene.</p>
+<p>If you are looking for a product that fits within a certain category of oil types, selecting that category will help you refine your search quickly.</p>
+</div>
+<div class="section" id="api-slider">
+<h4>API slider<a class="headerlink" href="#api-slider" title="Permalink to this headline">¶</a></h4>
+<p>The API slider lets you set a range you want of the oil’s API gravity. Only oils that fall within that range will be displayed.</p>
+</div>
+<div class="section" id="id2">
+<h4>Selecting an Oil<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>Clicking anywhere on the oil record in the list will select that oil. The final selection is recorded (and the form closed) when you click the “Select” Button</p>
+</div>
+<div class="section" id="seeing-the-complete-oil-record">
+<h4>Seeing the Complete Oil Record<a class="headerlink" href="#seeing-the-complete-oil-record" title="Permalink to this headline">¶</a></h4>
+<p>If you move the mouse over a record, a blue button labeled “more” will show on the right hand side. Clicking that button brings you to the Oil’s properties page.</p>
+<p>There are three tabs on the page:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>General Info:</strong>  Names, categories, reference, etc.</li>
+<li><strong>Properties:</strong> The physical properties of the oil.</li>
+<li><strong>Distillation:</strong> The distillation cuts of the oil. This shows how the oil is broken down by boiling point – important for computing the evaporation of the oil.</li>
+</ul>
+</div></blockquote>
+<p><strong>NOTE:</strong> Most oil records are not complete. Any properties that are not included in the record that are needed by the model are estimated – estimated values are shown in red so that it is clear what has been actually measured, and what has been calculated.</p>
+</div>
+</div>
+<div class="section" id="setting-the-spill-conditions">
+<h3>Setting the Spill conditions:<a class="headerlink" href="#setting-the-spill-conditions" title="Permalink to this headline">¶</a></h3>
+<p>10,000 gal. over five hours.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Click “Spill” to set the spill properties</li>
+</ul>
+</div></blockquote>
+<p>WebGNOME supports an instantaneous release (release of less than an hour or so) or a “continuous release” - for a leak over time.</p>
+<div class="section" id="instantaneous-release">
+<h4>Instantaneous Release<a class="headerlink" href="#instantaneous-release" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Click “Instantaneous Release”</li>
+<li>Set Amount Released the desired quantity</li>
+<li>Make sure to set the units appropriately.
+WebGNOME supports both volume (bbl, gal) and mass (metric ton, kg) units. The density of the oil will be used to convert between them.</li>
+<li>The “Confidence in Spill Amount” slider lets you set how confident you are in the
+amount spilled. If it is left at “Certain”, then the model will be run once with
+the amount you set. If set toward “Uncertain”, the model will be run multiple times, using a range of values. In the final output, you will be able to see a range of results.</li>
+<li>You can examine or change the Oil selected from this dialog as well.</li>
+<li>Click <strong>Save</strong> when you are happy with the settings.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="continuous-release">
+<h4>Continuous Release<a class="headerlink" href="#continuous-release" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">Click “Instantaneous Release”</p>
+</li>
+<li><p class="first">Set the duration of the release. For this example, it should be set to 5 hours.
+The default is the duration of the model run – make sure to reset that if you
+don’t want such a long release.</p>
+</li>
+<li><p class="first">You can now either:</p>
+<ul class="simple">
+<li>Set the Amount Released the desired quantity – and the release rate will be computed.</li>
+</ul>
+<p>or</p>
+<ul class="simple">
+<li>Set the Release Rate – and the Amount Released will be computed.</li>
+</ul>
+</li>
+<li><p class="first">Make sure to set the units appropriately.
+WebGNOME supports both volume (bbl, gal) and mass (metric ton, kg) units. The density of the oil will be used to convert between them.</p>
+</li>
+<li><p class="first">The “Confidence in Spill Amount” slider lets you set how confident you are in the
+amount spilled. If it is left at “Certain”, then the model will be run once with
+the amount you set. If set toward “Uncertain”, the model will be run multiple times, using a range of values. In the final output, you will be able to see a range of results.</p>
+</li>
+<li><p class="first">You can examine or change the Oil selected from this dialog as well.</p>
+</li>
+<li><p class="first">For this example, set:</p>
+<ul class="simple">
+<li>The Release Duration to 5 hours</li>
+<li>The Amount Released to 10000 gal.</li>
+</ul>
+<p>You will see the Release Rate gets set to 2000 gal/hr</p>
+</li>
+<li><p class="first">Click <strong>Save</strong> when you are happy with the settings.</p>
+</li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="water">
+<h3>Water:<a class="headerlink" href="#water" title="Permalink to this headline">¶</a></h3>
+<p>The Water setting allow you to set the conditions of the water body the spill is on. This includes water temperature, salinity, sediment load, and wave conditions.</p>
+<div class="section" id="temperature">
+<h4>Temperature<a class="headerlink" href="#temperature" title="Permalink to this headline">¶</a></h4>
+<p>Water temperature has significant effects on evaporation rates.</p>
+<p>Ideally, you would find field data for water temp in the region – see above.</p>
+<p>Or you can use an appropriate estimate for the time of year – there are some hints provided on the dialog.</p>
+<blockquote>
+<div><ul class="simple">
+<li>For this example, set the temperature to 77.4 °F. Be sure to set the appropriate units!</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="salinity-and-sediment-load">
+<h4>Salinity and Sediment load<a class="headerlink" href="#salinity-and-sediment-load" title="Permalink to this headline">¶</a></h4>
+<p>Salinity and Sediment Load effect the rate of OIl Sediment Aggregate formation. IN most cases, you can select an appropriate value from the pick list for fresh, brackish or salt water. If you do know more precise values, they can be set by selecting “other value” and typing in the value.</p>
+<p>For this example, leave the defaults – suitable for open ocean.</p>
+</div>
+<div class="section" id="wave-height">
+<h4>Wave Height<a class="headerlink" href="#wave-height" title="Permalink to this headline">¶</a></h4>
+<p>Wave Energy has a strong effect on the dispersion of the oil. If you know the wave height in the region at the time of the spill, you can set it directly. It should be the height of the “Seas” as swell does not drive dispersion very much.</p>
+<p>As dispersion is driven primarily by locally generated waves (white capping!) you usually want to us the default setting of “Compute from Wind (unlimited fetch)”. However, if the spill is in a fetch-limited region (such as a small bay) then you may want to use “Compute from Wind and Fetch”, and then set the fetch.</p>
+<ul class="simple">
+<li>For this example, the default of “Compute from Wind (unlimited fetch)” is most appropriate.</li>
+<li>Click <strong>Save</strong> when the settings are complete.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="wind">
+<h3>Wind:<a class="headerlink" href="#wind" title="Permalink to this headline">¶</a></h3>
+<p>The wind conditions have a large effect on the fate of an oil spill. Stronger winds result in faster evaporation, and increase the wave energy resulting in faster dispersion.</p>
+<ul class="simple">
+<li>Click <strong>Wind</strong> to set the wind conditions</li>
+</ul>
+<p>There are a number of ways to set the wind</p>
+<div class="section" id="constant-wind">
+<h4>Constant Wind:<a class="headerlink" href="#constant-wind" title="Permalink to this headline">¶</a></h4>
+<p>If the wind conditions are expected to be fairly steady throughout the duration of the event, a single wind speed and direction can be used. In this case, the direction does not effect the results, so you can set the speed, and leave 0 degrees (N) in place.</p>
+<p>Make sure to set the correct units.</p>
+<p>The speed and direction of the wind can be set by typing the values in or clicking on the compass rose – you will see the values change to match where the rose is clicked.</p>
+<p>The Speed Uncertainty slider can be set to indicate how certain you are of the wind speed –  how good you think the forecast is. If it is set to “Certain”, then the model will run with the value you set. If it is set to uncertain, then the model will be run multiple times, using values higher and lower than what was set, the the results will indicate a range of possible results.</p>
+</div>
+<div class="section" id="variable-wind">
+<span id="variable-wind-form"></span><h4>Variable Wind:<a class="headerlink" href="#variable-wind" title="Permalink to this headline">¶</a></h4>
+<p>If the Winds are expected to vary considerably over the duration of the spill, then you can set a variable wind record:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Select “Variable Wind”</li>
+</ul>
+</div></blockquote>
+<p>The variable wind form allows you to set the wind speed an direction at any number of times for the duration of the model run. The model will interpolate in between the specific times you specify.</p>
+<p>The “Inc.(hrs):” setting allows you to set the timestep between each input. If you have a forecast that is for every 6 hours, for example, you can set “Inc.(hrs):” to 6.</p>
+<p>For the forecast above, every 12 hours is appropriate. You can re-set the specific time if you like, the data do not have to be in even intervals.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Set “Inc.(hrs):” to 12</li>
+<li>Set the unit to knots: all input needs to be in the same units.</li>
+</ol>
+<p>To set the records:</p>
+<ol class="arabic simple">
+<li>Move your mouse over the first time in the list, and click the “pencil” icon to edit it: In this case, the forecast give a range – “5 to 10 knots”. This is typical in a forecast. It is usually best to select a value in the middle of that range.<ol class="arabic">
+<li>Type in 7 for the Speed, and SE for direction ( or 135 – wind from the SE is from 135 degrees from North)</li>
+<li>Click the check mark to save the record, or the “Plus Sign” to add a new record.</li>
+<li>The time will have been increased by the value you set: 12 hours in this case.</li>
+<li>The forecast in this case calls for the same speed and direction, so you can just click the check mark to save or the plus sign to add a new record.</li>
+</ol>
+</li>
+<li>Repeat the procedure above, to match the forecast.<ul>
+<li>Be sure to provide enough wind data to cover the full model run length.</li>
+</ul>
+</li>
+<li>The Speed Uncertainty slider can be set to indicate how certain you are of the wind speed –  how good you think the forecast is. If it is set to “Certain”, then the model will run with the value you set. If it is set to uncertain, then the model will be run multiple times, using values higher and lower than what was set, the the results will indicate a range of possible results.</li>
+<li>Click Save</li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="run-the-model">
+<h3>Run the model<a class="headerlink" href="#run-the-model" title="Permalink to this headline">¶</a></h3>
+<p>Click “Solve”</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dispersant_exercise.html" class="btn btn-neutral float-right" title="Chemical Dispersant Exercise" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../fate.html" class="btn btn-neutral" title="Simulating Oil Fate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, NOAA OR&amp;R
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h1>Oil Fate Mode</h1>
+            <p>Use the buttons below to set up an oil weathering simulation that models the physical and chemical changes that occur when oil is spilled in the marine environment.</p>
+            <p>The weathering model uses the NOAA ADIOS database which contains hundreds of different crude oils and refined products.</p>
+        </div>
+    </div>
+    <div class="row input">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="option name">
+                <div class="icon {% if(!(model.get('name') !== 'ADIOS Model_')){ %}missing {% } %}"></div>
+                <div class="title">Scenario Settings</div>
+                {% if (model.get('name') !== 'ADIOS Model_'){ %}
+                    <div class="info col-sm-12">
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <label>Name: </label>
+                                {{ model.get('name') }}
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Start Time: </label>
+                                {{ start_time }}
+                            </div>
+                            <div class="col-sm-12">
+                                {{ durationStr }}
+                            </div>
+                        </div>
+                    </div>
+                {% } else { %}
+                    <div class="col-sm-12"><p>Click to enter the scenario settings.</p></div>
+                    <div class="add" title="Click to edit the scenario name"></div>
+                {% } %}
+            </div>
+            <div class="option substance" >
+                <div class="icon {% if(!substance){ %}missing {% } %}"></div>
+                <div class="title">Oil</div>
+                {% if(substance && substance.get('api')){ %}
+                    <div class="info col-sm-12">
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <label>Name: </label>
+                                {{ substance.get('name') }}
+                            </div>
+                            <div class="col-sm-4">
+                                <label>API: </label>
+                                {{ substance.get('api').toFixed(1) }}
+                            </div>
+                        </div>
+                    </div>
+                {% } else { %}
+                    <div class="col-sm-12"><p>Click to select the oil to release.</p></div>
+                    <div class="add" title="Click to select the oil to release."></div>
+                {% } %}
+            </div>
+            <div class="option spill" >
+                <div class="icon {% if(!spills.length > 0){ %}missing {% } %}"></div>
+                <div class="title">Spill</div>
+                {% if(spills.length > 0){ %}
+                    <div class="col-md-12">
+                    {% for (var i = 0; i < spills.length; i++){ %}
+                        <div class="item" data-id="">
+                            <div class="col-sm-6">
+                                <label>Name: </label>
+                                {{ spills[i].get('name') }}
+                            </div>
+                            <div class="col-md-4">
+                                <label>Amount: </label>
+                                {% var amount = spills[i].get('amount'); %}
+
+                                {% if(spills[i].get('amount_uncertainty_scale') > 0) { %}
+                                {%     var value = spills[i].get('amount_uncertainty_scale'); %}
+                                {%     var sigma = value * (2.0 / 3.0) * amount; %}
+
+                                {%     var bottom = parseInt(Math.round(amount - sigma), 10); %}
+                                {%     var top = parseInt(Math.round(amount + sigma), 10); %}
+
+                                {%     amount = bottom + ' - ' + top; %}
+                                {% } %}
+
+                                {% var units = spills[i].get('units'); %}
+                                {% var info = amount + ' ' + units; %}
+                                <span class="label label-default amount">{{ info }}</span>
+                            </div>
+                        </div>
+                    {% } %}
+                    </div>
+                {% } else { %}
+                    <div class="col-sm-12"><p>Click to set the amount of oil released.</p></div>
+                    <div class="add" title="Click to set/edit the amount of oil released."></div>
+                {% } %}
+            </div>
+            <div class="option water" >
+                <div class="icon {% if(!water){ %}missing {% } %}"></div>
+                <div class="title">Water</div>
+                {% if(water){ %}
+                    <div class="col-md-12">
+                        <div class="item">
+                            <div class="col-md-6">
+                                <label>Temperature: </label> 
+                                {{ water.get('temperature') }} 
+                                {% if (water.get('units').temperature !== 'K'){ %}
+                                    &deg;
+                                {% } %}
+                                {{ water.get('units').temperature }}
+                            </div>
+                            <div class="col-md-6">
+                                <label>Salinity: </label>
+                                {{ water.get('salinity') }} {{ water.get('units').salinity }}
+                            </div>
+                            <div class="col-md-6">
+                                <label>Sediment Load: </label>
+                                {{ water.get('sediment') }} {{ water.get('units').sediment }}
+                            </div>
+                            {% if (!_.isNull(water.get('wave_height'))){  %}
+                                <div class="col-md-6"><label>Wave Height: </label> {{ water.get('wave_height') }} {{ water.get('units').wave_height }}</div>
+                            {% } %}
+                            {% if (!_.isNull(water.get('fetch'))){ %}
+                                <div class="col-md-6"><label>Fetch: </label> {{ water.get('fetch') }} {{ water.get('units').fetch }}</div>
+                            {% } %}
+                        </div>
+                    </div>
+                {% } else { %}
+                    <div class="col-sm-12"><p>Click to set water conditions</p></div>
+                    <div class="add" title="Click to set/edit water conditions."></div>
+                {% } %}
+            </div>
+            <div class="option wind" >
+                <div class="icon {% if(!wind){ %}missing {% } %}"></div>
+                <div class="title">Wind</div>
+                {% if(wind){ %}
+                    <div class="col-md-12">
+                        <div class="item">
+                            {% if(wind.get('timeseries').length > 1){ %}
+                                <div class="col-md-12">
+                                    <label>Timeseries:</label>
+                                    {{ wind_from }} to {{ wind_to }}
+                                </div>
+                            {% } else { %}
+                                <div class="col-md-6">
+                                    <label>Speed</label>
+                                    {{ wind.applySpeedUncertainty(wind.get('timeseries')[0][1][0]) }} {{ wind.get('units') }}
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Direction</label>
+                                    {{ wind.get('timeseries')[0][1][1] }} &deg;
+                                </div>
+                            {% } %}
+                        </div>
+                    </div>
+                {% } else { %}
+                    <div class="col-sm-12"><p>Click to set wind speed and direction</p></div>
+                    <div class="add" title="Click to set/edit wind speed and direction."></div>
+                {% } %}
+            </div>
+        </div>
+    </div>
+    <div class="row input">
+        <div class="col-md-4 col-md-offset-4">
+            <a class="btn btn-success btn-block btn-lg solve {% if(spills.length === 0 || !substance || !water || !wind) { %}disabled {% } %}"> Solve </a>
+        </div>
+    </div>
+    <div class="row input">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="option response" >
+                <div class="icon optional"></div>
+                <div class="title">Response Options</div>
+                {% if(responses.length > 0){ %}
+                    <div class="col-md-12">
+                        {% for(var r = 0; r < responses.length; r++){ %}
+                            <div class="item" data-id="{{ responses[r].get('id') }}" title="Click to edit {{ responses[r].get('name') }}">
+                                <div class="col-md-6">
+                                    <label>Name: </label>
+                                    {{ responses[r].get('name') }}
+                                </div>
+                                {% if(responses[r].get('obj_type').indexOf('Dispersion') !== -1){ %}
+                                    <div class="col-md-6">
+                                        <label>Percent Sprayed: </label>
+                                        {{ responses[r].get('fraction_sprayed') * 100 }} %
+                                    </div>
+                                {% } %}
+                                {% if(responses[r].get('obj_type').indexOf('Burn') !== -1){ %}
+                                    <div class="col-md-3">
+                                        <label>Thickness: </label>
+                                        {{ responses[r].get('thickness')}} {{ responses[r].get('thickness_units') }}
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>Area: </label>
+                                        {{ responses[r].get('area') }} {{ responses[r].get('area_units') }}
+                                    </div>
+                                {% } %}
+                                {% if(responses[r].get('obj_type').indexOf('Skim') !== -1){ %}
+                                    <div class="col-md-6">
+                                        <label>Amount: </label>
+                                        {{ responses[r].get('amount')}} {{ responses[r].get('units') }}
+                                    </div>
+                                {% } %}
+                            </div>
+                        {% } %}
+                    </div>
+                    <div class="add small"></div>
+                {% }  else { %}
+                    <div class="col-sm-12"><p>Click to add a response option for oil removal/recovery.</p></div>
+                    <div class="add" title="Click to add a response option for oil removal/recovery."></div>
+                {% } %}
+            </div>
+            <div class="option beached" >
+                <div class="icon optional"></div>
+                <div class="title">Observed Beaching</div>
+                {% if (beached_ts && beached_ts.length > 0){ %}
+                    <div class="col-md-12">
+                        {% for (var i = 0; i < beached_ts.length; i++){ %}
+                            <div class="item">
+                                <div class="col-md-6">
+                                    <label>Time: </label>
+                                    {{ beached_ts[i].time }}
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Amount: </label>
+                                    {{ beached_ts[i].amount }} {{beached_units }}
+                                </div>
+                            </div>
+                        {% } %}
+                {% } else { %}
+                    <div class="col-sm-12"><p>Click to add oil beaching events.</p></div>
+                    <div class="add" title="Click to add oil beaching events."></div>
+                {% } %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Columbia River Estuary Example Problems &mdash; WebGNOME  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> WebGNOME
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#related-projects">Related Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basics.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basics.html#the-menu-bar">The Menu Bar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics.html#switching-between-model-views">Switching between Model Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics.html#using-setup-view">Using Setup View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics.html#timeline-graphic-under-development">Timeline Graphic (Under Development)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../fate.html">Simulating Oil Fate</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fate.html#oil-fate-wizard">Oil Fate Wizard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fate.html#adios-oil-library">ADIOS Oil Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fate.html#oil-fate-exercises">Oil Fate Exercises</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../fate_exercises/full_run_through.html">A Complete Annotated Example</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/full_run_through.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/full_run_through.html#model-input">Model Input</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../fate_exercises/dispersant_exercise.html">Chemical Dispersant Exercise</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/dispersant_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/dispersant_exercise.html#model-input">Model Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/dispersant_exercise.html#discussion">Discussion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../fate_exercises/continuous_exercise.html">Continuous Release Exercise</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/continuous_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/continuous_exercise.html#model-input">Model Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/continuous_exercise.html#id3">Discussion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../fate_exercises/ics_209_exercise.html">ICS 209 Exercise</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/ics_209_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../fate_exercises/ics_209_exercise.html#model-input">Model Input</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../transport.html">Simulating Transport</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../transport.html#setting-up-the-model">Setting up the Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transport.html#using-location-files">Using Location Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transport.html#oil-transport-exercises">Oil Transport Exercises</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transport_exercises/location_file_exercise.html">Example Scenario using Location File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#columbia-river-estuary-example-problem">Columbia River Estuary Example Problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#setting-up-the-intial-scenario">Setting up the Intial Scenario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#return-to-setup-view-to-add-winds">Return to Setup View to add Winds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#change-the-spill-start-time">Change the Spill Start Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#stronger-river-flow">Stronger River Flow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/location_file_exercise.html#include-uncertainty">Include Uncertainty</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../transport_exercises/manual_exercise.html">Example Scenario with Manual Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#sample-files">Sample Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#incident">Incident</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#get-started">Get Started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#load-a-map">Load a Map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#add-wind-data-and-current-data">Add Wind Data and Current Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#add-horizontal-mixing-diffusion">Add Horizontal Mixing (Diffusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#add-the-spill">Add the Spill</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#run-the-model">Run the Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_exercises/manual_exercise.html#explore">Explore</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../response.html">Simulating Response Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../location_files.html">Location Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../location_files.html#location-file-wizard">Location File Wizard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../location_files.html#available-location-files">Available Location Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#alaska-region">Alaska Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#atlantic-region">Atlantic Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#gulf-of-mexico">Gulf of Mexico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#pacific-region">Pacific Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../location_files.html#international">International</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../goods.html">GNOME Data Server (GOODS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uncertainty.html">Uncertainty in WebGNOME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WebGNOME</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Columbia River Estuary Example Problems</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/location_files/columbia_river_estuary_examples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="columbia-river-estuary-example-problems">
+<span id="cre-examples"></span><h1>Columbia River Estuary Example Problems<a class="headerlink" href="#columbia-river-estuary-example-problems" title="Permalink to this headline">¶</a></h1>
+<p>Try out these examples to learn the basics of modeling oil spills in
+Columbia River Estuary. Explore how the changing river flow alters the
+estuary’s tidal currents and the trajectory of an oil slick, how wind
+can move an oil slick in a different direction from the currents, and
+how model and observation limitations can be overcome by considering
+both the “Best Guess” and the “Minimum Regret” solutions. This knowledge
+will help you in designing your own GNOME scenarios.</p>
+<p><strong>The following conditions hold for each of the examples:</strong></p>
+<p>Date: December 6, 1998</p>
+<p>Model and Spill Start Time: 4:00 p.m. (1600)</p>
+<p>Run duration: 1 day</p>
+<p>Wind: No wind, unless specified in a particular example.</p>
+<p>Pollutant type: Non-weathering.</p>
+<p>Use GNOME’s Standard Mode and the Columbia River Estuary Location File
+to answer the following questions:</p>
+<div class="section" id="example-1">
+<h2>Example 1.<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<p>To see the effects of river flow on the tidal currents, use each
+of the three given Columbia River flow rates in the Location File with a
+wind speed of zero (0). Set a nonweathering spill of any amount at 46°
+14.087’ N, 123° 42.708’ W (an interesting portion of the deeper
+channel).</p>
+<p>How long does it take for some of the leading “best guess” (black)
+splots to leave the estuary?</p>
+<blockquote>
+<div><p><strong>Hint:</strong> To find the time elapsed, stop the model using the Pause
+button, and then subtract the time shown on the run bar from the
+start time.</p>
+<p><strong>Answer:</strong> The order from fastest to slowest is</p>
+</div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>High</td>
+<td>7 hours</td>
+</tr>
+<tr class="row-even"><td>Medium</td>
+<td>15 hours</td>
+</tr>
+<tr class="row-odd"><td>Low</td>
+<td>18 hours</td>
+</tr>
+</tbody>
+</table>
+<p>As you watch the slick move during each model run, the movement of the
+slick up-river during the flood tide will increase as the Columbia River
+flow decreases. When the river flow is low, the tides move the oil back
+and forth as the oil is moving out of the estuary. Under high river flow
+conditions, flood tides only slow the river flow, and there is no
+current reversal or reversal in the oil’s direction of travel. This is
+because the river flow is greater than the tidal flood currents during a
+longer time period of the tidal flood cycle.</p>
+</div>
+<div class="section" id="example-2">
+<h2>Example 2.<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<p>Rerun the fastest and slowest scenarios above with the addition
+of a 10-knot wind from the north.</p>
+<p>What happens to the spill?**</p>
+<blockquote>
+<div><strong>Answer:</strong> Even light winds can dramatically change the trajectory
+of a spill. In both the fastest and the slowest cases, a 10-knot
+wind from the north will cause most of the oil to beach on the
+southern shore of the estuary before leaving the estuary. This
+beaching happens because the wind both moves the oil directly (by
+pushing it) and generates surface waves that move the oil.</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>GNOME chooses between two different methods for estimating total
+river flow at Astoria, depending on the value you enter for the flow
+rates at Bonneville Dam and for the Willamette River. If both your
+values are small enough, the low flow method is used; otherwise, the
+high flow method is used (check the Technical Documentation section
+of the Columbia River Estuary <strong>User’s Guide</strong> to learn more). To see
+the difference, set a spill at 46° 12.02’ N, 123° 51.65’ W. Run the
+spill using 200 kcfs for the Bonneville Dam flow rate and 90 kcfs for
+the Willamette River at Portland flow. Rerun the spill with 210 kcfs
+for the Bonneville Dam flow rate and 100 kcfs for the Willamette
+River at Portland flow, respectively.</li>
+</ol>
+<p><strong>Can you see a difference in how fast the spill moves down river?</strong></p>
+<blockquote>
+<div><strong>Answer:</strong> Yes, when you increase river flow, you should be able to
+see a difference in how the oil moves, because a high river flow
+rate overwhelms the tidal currents. When the river flow is low, the
+tides move the oil back and forth as the oil is moving out of the
+estuary. Under high river flow conditions, flood tides only slow the
+river flow, and there is no current reversal or reversal in the
+oil’s direction of travel. The first scenario (200 and 90 kcfs)
+leads to a total transport of 352 kcfs at Astoria. The second
+scenario (210 and 100 kcfs) leads to a substantially higher total
+transport of 506 kcfs. The large difference in oil movement that you
+saw when you ran the two scenarios shows that GNOME may not
+accurately model oil movement in the Columbia River Estuary near
+transitions between high and low flow conditions.</div></blockquote>
+<p><strong>4.(a)</strong> Suppose there is a bird rookery on the southeastern portion of
+Puget Island (the large island near the eastern boundary of the map);
+the rookery extends from 46° 09.03’N, 123° 22.2’ W to 46° 09.19’ N, 123°
+20.58’ W. An oil spill occurs across the entire river at the right
+(eastern) edge of the map from a sunken boat. The river flow is low (125
+kcfs) and you are concerned about immediate (within a few hours) impacts
+to the rookery.</p>
+<p>Remember that the wind can be an important influence on oil
+trajectories. Experiment by changing the wind speed and direction to
+find the wind conditions that would keep all of the oil away from the
+rookery for the first hour of the spill.</p>
+<p>From what direction must the wind blow to keep the rookery oil-free for
+the first hour? What is the minimum wind speed that would keep the
+rookery oil-free for that time?</p>
+<blockquote>
+<div><p><strong>Hint:</strong> Try zooming in to the area before you start. Select the
+Zoom In tool and use it to outline the new desired map area.</p>
+<p><strong>Hint:</strong> To set a line spill, click and drag the Spill Tool from
+the starting point to the end point of your spill.</p>
+</div></blockquote>
+<ol class="loweralpha" start="2">
+<li><p class="first">Suppose that you were responding to this spill, and the wind
+forecast was the same as your answer to part (a). Would you
+anticipate any oil reaching the bird rookery?</p>
+<p><strong>Hint:</strong> Try including the “Minimum Regret” solution to see if it
+makes a difference in the results.</p>
+<p><strong>Answers:</strong></p>
+</li>
+</ol>
+<ol class="loweralpha simple">
+<li><dl class="first docutils">
+<dt>A wind of 20 knots from the north should keep all splots off the</dt>
+<dd>bird rookery area.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Though the “Best Guess” splots will probably not hit the bird</dt>
+<dd>rookery, the “Minimum Regret” splots will indicate more impacts
+to the rookery, showing you how important it is to consider the
+uncertainty solution when you want to understand the full range
+of possibilities. This is because forecasts are not likely to be
+perfect, and the “Minimum Regret” splots take into account how
+forecasts most commonly err. For more information, refer to the
+Uncertainty and “Minimum Regret” GNOME Help topics.</dd>
+</dl>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, NOAA OR&amp;R
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

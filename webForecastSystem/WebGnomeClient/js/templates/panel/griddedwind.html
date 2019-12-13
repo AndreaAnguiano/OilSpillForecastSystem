@@ -1,0 +1,34 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="add"></div>
+        <div class="state"></div>
+        Gridded Wind
+    </div>
+    <div class="panel-body">
+        <div class="map" id="mini-windmap"></div>
+        <div class="list">
+            {% for (var i = 0; i < griddedwind.length; i++){ %}
+                <div class="single row" data-id="{{ griddedwind[i].get('id') }}">
+                    <div class="col-sm-8">
+                        <label>
+                        {% if(griddedwind[i].get('on')){ %}
+                            <input type="checkbox" name="active" value="1" id="active" checked="checked">
+                        {% } else { %}
+                            <input type="checkbox" name="active" value="1" id="active">
+                        {% } %}
+                        {{ griddedwind[i].get('name') }}
+                        </label>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <span class="trash delete" title="Remove {{ griddedwind[i].get('name') }}"></span>
+                        <span class="edit" title="Edit {{ griddedwind[i].get('name') }}"></span>
+                        <span class="time_check {{ griddedwind[i].get('time_compliance') }}"
+                              title="{{ griddedwind[i].get('time_compliance_msg') }}">
+                        </span>
+                    </div>
+                </div>
+            {% } %}
+        </div>            
+    </div>
+</div>

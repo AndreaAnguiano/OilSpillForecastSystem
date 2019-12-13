@@ -7,7 +7,7 @@ import matplotlib.ticker as mticker
 from post_gnome import nc_particles
 
 
-def plotparticlesforecast(data_path, point, filename, t, dts, latbox, lonbox, proj):
+def plotparticlesforecast(data_path, point, filename, t, dts, latbox, lonbox, proj, uncertain):
     particles = nc_particles.Reader(data_path+'/'+filename)
     times = particles.times
     states = NaturalEarthFeature(category="cultural", scale="10m", facecolor="none", name='admin_1_states_provinces_lines')
@@ -42,6 +42,12 @@ def plotparticlesforecast(data_path, point, filename, t, dts, latbox, lonbox, pr
         plt.ylim([latmin, latmax])
         ax.set_title(str(tnew)+point, {'fontsize': 15}, 'center')
         plotScatter = plt.scatter(TheData['longitude'][pid], TheData['latitude'][pid], s=20, color='k', marker='.')
+        if uncertain:
+            particles_uncertain = nc_particles.Reader(data_path+'/'+filename[0:-3]+'_uncertain.nc')
+            TheData_uncertain = particles_uncertain.get_timestep(tidx, variables=['latitude', 'longitude', 'status_codes', 'depth'])
+            status_uncertain = TheData_uncertain['status_codes']
+            pid_uncertain = np.where(status_uncertain == 2)[0]
+            plotScatter_uncertain = plt.scatter(TheData_uncertain['longitude'][pid_uncertain], TheData_uncertain['latitude'][pid_uncertain], s=20, color='red', marker='.')
         plt.savefig(data_path+'/'+'foreground_'+"{0:05d}".format(i)+'.png', bbox_inches = 'tight', pad_inches = 0.1, quality=95)
         plt.clf()
         plt.close()
