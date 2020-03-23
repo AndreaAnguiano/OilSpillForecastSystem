@@ -79,7 +79,7 @@ def wrfforecast(startDate, endDate, path, prefix,sufix, latbox, lonbox, uvar, vv
     v.standard_name = 'northward_air_velocity'
     v.units = 'm/s'
 
-    timenetcdf = [x for x in range(1, len(ncTime) +1)]
+    timenetcdf = [x for x in range(0, len(ncTime))]
 
     lat[:] = latValues[:]
     lon[:] = lonValues[:]

@@ -28,15 +28,17 @@ body {
 
 /* Custom page header */
 .header {
-  padding-bottom: 1rem;
+  padding-bottom: 0rem;
   border-bottom: 0.5rem solid #0A1612;
+  align-content: left;
 }
 .nav_logo{
   width: 20%;
 }
 .nav_logo_min{
   padding-top: 1rem;
-  width: 50px;
+  width: 400px;
+  height: 100px;
 }
 
 /* Custom page footer */
@@ -45,9 +47,9 @@ body {
   /*border-top: .05rem solid #c5c1c0;*/
 }
 
-/* Custom link colors */
+/* Custom link colors *
 a{
-  color: #0B3C5D;
+  color: #000000;
 }
 a:hover {
   color: #F7CE3E;
@@ -155,7 +157,7 @@ a:hover {
 }
 @media (min-width: 1200px){
   .container {
-    max-width: 80%;
+    max-width: 100%;
   }
 }
 @media (min-width: 1800px){
@@ -169,3 +171,21 @@ a:hover {
 	display:block; 
 	text-align: center;
 }
+
+.navbar-toggle{
+    display: none;
+}
+
+
+#topmenuIcons {
+    background: #FFFF;
+    height: 36px;
+    margin: 0 0 1px;
+}
+
+.clearfix{
+    min-width: 0;
+    display: block;
+    padding-right: 0px;
+}
+

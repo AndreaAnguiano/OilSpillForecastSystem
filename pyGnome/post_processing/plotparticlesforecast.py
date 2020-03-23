@@ -24,6 +24,7 @@ def plotparticlesforecast(data_path, point, filename, t, dts, latbox, lonbox, pr
         TheData = particles.get_timestep(tidx, variables=['latitude', 'longitude', 'status_codes', 'depth'])
         status = TheData['status_codes']
         pid = np.where(status == 2)[0]
+        on_land = np.where(status == 3)[0]
         fig = plt.figure(figsize=(10, 5))
         ax = plt.subplot(1, 1, 1, projection=proj)
         ax.add_feature(coastline, edgecolor='black', zorder=6,)
@@ -46,8 +47,11 @@ def plotparticlesforecast(data_path, point, filename, t, dts, latbox, lonbox, pr
             TheData_uncertain = particles_uncertain.get_timestep(tidx, variables=['latitude', 'longitude', 'status_codes', 'depth'])
             status_uncertain = TheData_uncertain['status_codes']
             pid_uncertain = np.where(status_uncertain == 2)[0]
+            on_land_uncertain = np.where(status_uncertain == 3)[0]
             plotScatter_uncertain = plt.scatter(TheData_uncertain['longitude'][pid_uncertain], TheData_uncertain['latitude'][pid_uncertain], s=20, color='red', marker='.')
+            plotScatter_uncertain_onland = plt.scatter(TheData_uncertain['longitude'][on_land_uncertain], TheData_uncertain['latitude'][on_land_uncertain], s=20, color='red', marker='+')
         plotScatter = plt.scatter(TheData['longitude'][pid], TheData['latitude'][pid], s=20, color='k', marker='.')
+        plotScatter_onland = plt.scatter(TheData['longitude'][on_land], TheData['latitude'][on_land], s=20, color='k', marker='+')
         plt.savefig(data_path+'/'+'foreground_'+"{0:05d}".format(i)+'.png', bbox_inches = 'tight', pad_inches = 0.1, quality=95)
         plt.clf()
         plt.close()
