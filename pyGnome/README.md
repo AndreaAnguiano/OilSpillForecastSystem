@@ -21,16 +21,7 @@ sudo apt-get install libhdf5-serial-dev
 sudo apt-get install libnetcdf-dev
 ```
 
-## 1. Install dependencies 
-
-```
-conda install -c anaconda netcdf4 
-conda install -c conda-forge pyshp 
-conda install -c conda-forge gridded 
-conda install -c conda-forge nbsphinx 
-```
-
-## 2. Adding extra channels to conda
+## 1. Adding extra channels to conda
 
 Add the NOAA-ORR-ERD channel 
 ```
@@ -42,6 +33,7 @@ conda config --add channels conda-forge
 ```
 
 ## 3. Cloning the PyGnome git repository
+
 ```
 git clone https://github.com/NOAA-ORR-ERD/PyGnome.git
 cd PyGnome
